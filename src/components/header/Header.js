@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div className="bg-gray-800 w-full">
 
-    <header className=" text-white min-h-[50px] py-3 px-10 3xl:w-9/12 3xl:m-auto max-w-screen-3xl z-10">
+    <header className=" text-white min-h-[50px] py-3 px-5 3xl:w-9/12 3xl:m-auto max-w-screen-3xl z-10">
       <div className="flex justify-between items-center">
         <Link to="/">
           <img src={logo} width="50px" alt="logo" />

@@ -1,11 +1,14 @@
 import React from "react";
-// import logo from "../../assets/logoPan.jpeg";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
-      <footer className=" text-white bg-gray-800 py-5 min-h-[50px]">
-        <p className="m-auto text-center">&copy; Copyright Petya Ferreira</p>
-      </footer>
+    <footer className="py-3 px-5 text-white bg-gray-800 min-h-[50px]">
+      <div className="flex justify-center align-center gap-x-1">
+        <p className="">&copy; Copyright Petya Naydenova Ferreira</p>
+        <span>{currentYear}</span>
+      </div>
+    </footer>
   );
 };
 
