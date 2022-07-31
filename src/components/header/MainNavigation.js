@@ -1,6 +1,6 @@
 import React from 'react';
 import { pages } from '../../constants/pages';
-import PageLink from '../PageLink';
+import PageLink from '../common/PageLink';
 
 const MainNavigation = () => {
   return (

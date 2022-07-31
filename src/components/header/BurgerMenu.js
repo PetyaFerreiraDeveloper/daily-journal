@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { pages } from "../../constants/pages";
 import CloseIcon from "../svg/CloseIcon";
-import PageLink from "../PageLink";
+import PageLink from '../common/PageLink';
 
 const BurgerMenu = ({ className }) => {
   return (

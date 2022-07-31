@@ -11,7 +11,12 @@ module.exports = {
       '2xl': '1440px',
       '3xl': '1920px',
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        heroMain: 'linear-gradient(180deg, #040094 0%, #201AF7 38.54%, #80DBE1 85.42%, #FFFFFF 100%)',
+        heroGreen: 'linear-gradient(180deg, rgba(102,140,48,1) 0%, rgba(210,221,196,1) 100%)',
+      }
+    },
   },
   plugins: [],
 }

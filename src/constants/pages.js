@@ -11,12 +11,12 @@ export const pages = [
     page: "About us",
     navigation: "/about",
   },
-  // {
-  //   page: "Login",
-  //   navigation: "/login",
-  // },
-  // {
-  //   page: "Logout",
-  //   navigation: "/logout",
-  // },
+  {
+    page: "Login",
+    navigation: "/login",
+  },
+  {
+    page: "Logout",
+    navigation: "/logout",
+  },
 ];
