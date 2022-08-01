@@ -5,7 +5,7 @@ const Hero = (props) => {
   const { articleTitle, description, label, imageUrl, imageAlt, className} =
     props;
   return (
-    <section className={`flex flex-col gap-y-20 md:gap-y-24 lg:gap-y-0 -mt-[63px] md:-mt-[99px] h-screen -mx-[32px] lg:-mx-[96px] md:h-[700px] 2xl:-mx-[128px] px-8 md:px-16 2xl:px-32 justify-center items-center xs:pb-10 pb-20 relative ${className}`}>
+    <section className={`flex flex-col gap-y-20 md:gap-y-24 lg:gap-y-0 -mt-[80px] md:-mt-[116px] h-screen -mx-[32px] lg:-mx-[96px] md:h-[700px] 2xl:-mx-[128px] px-8 md:px-16 2xl:px-32 justify-center items-center xs:pb-10 pb-20 relative ${className}`}>
       <div className="flex flex-col items-center xxs:gap-y-3 gap-y-10 pt-20 md:grid md:grid-cols-2 relative">
         <h1 className="text-center text-4xl font-bold md:self-end md:text-left">
           {articleTitle}

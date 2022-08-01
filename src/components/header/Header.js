@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../assets/logoPan.jpeg";
-import logoSvg from "../../assets/logo.svg";
-import logo1 from "../../assets/logo1.svg";
+import {ReactComponent as LogoWhite} from "../../assets/logoWhite.svg";
 import BurgerIcon from "../svg/BurgerIcon";
 import MainNavigation from "./MainNavigation";
 import { Link } from "react-router-dom";
@@ -11,12 +9,10 @@ const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <header className="py-3 px-8 3xl:w-9/12 3xl:m-auto max-w-screen-3xl z-10 text-white">
+    <header className="py-2 px-8 3xl:w-9/12 3xl:m-auto max-w-screen-3xl z-10 text-white">
       <div className="flex justify-between items-center">
-        <Link to="/">
-          {/* <img src={logo} alt="logo" className="w-[50px] md:w-[80px]" /> */}
-          <img src={logo1} alt="logo" className="w-[50px] md:w-[50px]" />
-          {/* <img src={logoSvg} alt="logosvg" className="w-[50px] md:w-[80px]" /> */}
+        <Link to="/" className="flex">
+          <LogoWhite alt="logo" className="w-[60px] md:w-[100px]"  />
         </Link>
         <div>
         </div>
