@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Register = () => {
   return (
-    <section id="register-page" className="content auth">
+    <section id="register-page" className="content auth bg-gray-300 w-full h-screen">
       <form id="register">
         <div className="container">
           <div className="brand-logo" />

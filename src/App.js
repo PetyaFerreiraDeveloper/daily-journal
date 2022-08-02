@@ -1,57 +1,20 @@
 import React from "react";
-import Article from "./components/common/Article";
-import ArticleImage from "./components/common/ArticleImage";
-import Hero from "./components/Hero";
-import Layout from "./layout/Layout";
+import { Routes, Route } from "react-router-dom";
 
-import safe from "./assets/safe.jpg";
-import hero from './assets/hero.jpg';
-import free from './assets/free.jpg';
+import Layout from "./layout/Layout";
+import Home from "./components/home/Home";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
   return (
-    <Layout>
-      <div>
-        <Hero 
-          articleTitle={"Journal Every Day"}
-          description={
-            "This is your private sacred place. Here you can share your thoughts, plans and dreams."
-          }
-          label={"Start your journal"}
-          imageUrl={hero}
-          className={"bg-heroGreen text-white"}
-          imageAlt={"laptop, computer and notebook with a pen on top of a desk"}
-        />
-        <Article
-          articleTitle={"Why are you writing?"}
-          description={
-            "You might be writing to record your daily experiences and emotions, to plan and organize your day and thoughts, to keep your creativity going or to express your dreams and desires. My Daily Journal is the place where you can do all of these and more."
-          }
-          label={"Get Started Now"}
-          className=""
-        />
-        <ArticleImage
-          articleTitle={"Your information and privacy are safe with us"}
-          description={
-            "You might be writing to record your daily experiences and emotions, to plan and organize your day and thoughts, to keep your creativity going or to express your dreams and desires. My Daily Journal is the place where you can do all of these and more."
-          }
-          label={"Get Started"}
-          imageUrl={safe}
-          className="md:flex-row"
-          imageAlt={"tablet showing username and password"}
-        />
-        <ArticleImage
-          articleTitle={"Enjoy the freedom and write from anywhere, whenever you feel like it"}
-          description={
-            "Your daily Journal is always at hand. You can write on your mobile, tablet or your computer. Just grab the opportunity and use it."
-          }
-          label={"Join the ride"}
-          imageUrl={free}
-          className="md:flex-row-reverse"
-          imageAlt={"tablet showing username and password"}
-        />
-      </div>
-    </Layout>
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout> <Home /> </Layout>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </div>
   );
 }
 

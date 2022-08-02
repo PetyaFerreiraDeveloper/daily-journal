@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
-    <section id="login-page" className="auth">
+    <section id="login-page" className="auth bg-gray-300 w-full h-screen">
       <form id="login">
         <div className="container">
           <div className="brand-logo" />
