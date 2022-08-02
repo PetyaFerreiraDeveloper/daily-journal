@@ -4,6 +4,7 @@ import Catalog from './Catalog';
 
 import hero from '../../assets/hero.jpg';
 
+
 const MyJournal = () => {
   return (
     <div>
