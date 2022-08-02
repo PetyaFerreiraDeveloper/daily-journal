@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import hero from "../assets/hero.jpg";
 
 const Hero = (props) => {
-  const { articleTitle, description, label, imageUrl, imageAlt, className} =
+  const { articleTitle, description, label, imageUrl, imageAlt, navigateTo, className} =
     props;
   return (
     <section className={`flex flex-col gap-y-20 md:gap-y-24 lg:gap-y-0 -mt-[80px] md:-mt-[116px] h-screen -mx-[32px] lg:-mx-[96px] md:h-[700px] 2xl:-mx-[128px] px-8 md:px-16 2xl:px-32 justify-center items-center xs:pb-10 pb-20 relative ${className}`}>
@@ -19,7 +19,7 @@ const Hero = (props) => {
             {description}
           </p>
           <Link
-            to={"/register"}
+            to={navigateTo}
             className="rounded-full border-2 border-orange-500 bg-orange-400 xxs:px-5 px-8 py-2"
           >
             {label}

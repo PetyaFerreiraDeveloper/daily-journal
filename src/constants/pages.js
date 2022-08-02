@@ -1,7 +1,7 @@
 export const pages = [
   {
-    page: "Destinations",
-    navigation: "/destinations",
+    page: "Home",
+    navigation: "/",
   },
   {
     page: "Blog",
@@ -12,9 +12,21 @@ export const pages = [
     navigation: "/about",
   },
   {
-    page: "Login",
-    navigation: "/login",
+    page: "My Journal",
+    navigation: "/my-journal",
   },
+  {
+    page: "Create",
+    navigation: "/create",
+  },
+  // {
+  //   page: "Login",
+  //   navigation: "/login",
+  // },
+  // {
+  //   page: "Register",
+  //   navigation: "/register",
+  // },
   {
     page: "Logout",
     navigation: "/logout",

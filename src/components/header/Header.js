@@ -29,13 +29,13 @@ const Header = () => {
         <div className="hidden lg:flex gap-x-4">
         <Link
             to={"/login"}
-            className="rounded-full border-2 bg-blue-800 border-black xxs:px-5 px-8 py-2"
+            className="rounded-full bg-blue-800 border-black px-5 py-2"
           >
             Login
           </Link>
           <Link
             to={"/register"}
-            className="rounded-full border-2 border-orange-500 bg-orange-400 xxs:px-5 px-8 py-2"
+            className="rounded-full border-2 border-orange-500 bg-orange-400 px-5 py-2"
           >
             Register
           </Link>

@@ -1,11 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const PageLink = ({ link }) => {
   const { page, navigation } = link;
 
   return (
-    <Link to={navigation}>{page}</Link>
+    <NavLink 
+      to={navigation}
+      style={(navLinkProps) => {
+        return navLinkProps.isActive
+         ? {
+          backgroundColor: 'darkgreen',
+          padding: '8px 20px',
+          borderRadius: '9999px',
+
+        }
+         : null
+      }}
+    >
+      {page}
+    </NavLink>
   );
 };
 
