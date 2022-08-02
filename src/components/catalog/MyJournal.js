@@ -1,11 +1,12 @@
 import React from 'react';
 import Hero from '../Hero';
-import Catalog from './Catalog';
+import Catalog from './JournalList';
 
 import hero from '../../assets/hero.jpg';
 
 
-const MyJournal = () => {
+const MyJournal = ( props ) => {
+  const {entries} = props;
   return (
     <div>
         <Hero 
@@ -19,7 +20,7 @@ const MyJournal = () => {
             className={"bg-heroGreen text-white"}
             imageAlt={"laptop, computer and notebook with a pen on top of a desk"}
         />
-        <Catalog />
+        <Catalog entries={entries}/>
     </div>
   )
 }

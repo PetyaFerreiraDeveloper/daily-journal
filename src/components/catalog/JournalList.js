@@ -1,23 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
-
-import * as gameService from "../../services/journalService";
 
 import JournalEntry from "./JournalEntry";
 
-const Catalog = () => {
-  const [entries, setEntries] = useState([]);
-
-  useEffect(() => {
-    gameService.getAll().then((result) => {
-      setEntries(result);
-    });
-  }, []);
+const JournalList = (props) => {
+  const {entries} = props;
 
   return (
     <section>
       <h2>All your journal entries are here</h2>
-      {/* display div with each entry */}
       {entries.length > 0 ? (
         entries.map((entry) => (
           <JournalEntry key={entry._id} journalEntry={entry} />
@@ -29,4 +19,4 @@ const Catalog = () => {
   );
 };
 
-export default Catalog;
+export default JournalList;
