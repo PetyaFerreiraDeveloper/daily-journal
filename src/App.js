@@ -50,6 +50,7 @@ function App() {
         <Route path="/my-journal/:journalEntryId/edit" element={<Layout> <EditEntry /> </Layout>}  />
 
         <Route path="/create" element={<Layout> <CreateEntry addEntryHandler={addEntryHandler} /> </Layout>}  />
+        <Route path="/404" element={ <NotFound /> }  />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
