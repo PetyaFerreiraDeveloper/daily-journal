@@ -35,6 +35,7 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/about" element={<Layout> <About /> </Layout>}  />
         <Route path="/my-journal" element={<Layout> <MyJournal entries={entries}/> </Layout>}  />
+        <Route path="/my-journal/:journalEntryId" element={<Layout> <Details entries={entries}/> </Layout>}  />
         <Route path="/create" element={<Layout> <CreateEntry /> </Layout>}  />
         <Route path="/create-form" element={<CreateForm />}  />
         {/* <Route path="/details" element={<Details />}  /> */}

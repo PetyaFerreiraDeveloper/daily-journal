@@ -12,7 +12,7 @@ const JournalEntry = (props) => {
       <p>{journalEntry.title}</p>
       <p>{dateFormatter(journalEntry._createdOn)}</p>
       <Link
-        to={"/details"}
+        to={`/my-journal/${journalEntry._id}`}
         className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
       >
         Details
