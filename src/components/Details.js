@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import { dateFormatter } from '../utils/dateFormatter';
 
@@ -8,10 +8,10 @@ const Details = (props) => {
     const {entries} = props;
     const { journalEntryId } = useParams();
     const navigate = useNavigate();
-
+    
     const journalEntry = entries.find(entry => entry._id == journalEntryId);
 
-    const clickHandler = () => {
+    const backClickHandler = () => {
         navigate(-1);
     };
 
@@ -25,12 +25,19 @@ const Details = (props) => {
         <p>{journalEntry.journalEntry}</p>
         <button 
             className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
-            onClick={clickHandler}
+            onClick={backClickHandler}
         >
             Back
         </button>
+        <Link 
+            className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
+            to={`/my-journal/${journalEntry._id}/edit`}
+        >
+            Edit
+        </Link>
         
     </section>
+
   )
 }
 
