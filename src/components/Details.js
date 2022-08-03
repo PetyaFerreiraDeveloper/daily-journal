@@ -10,6 +10,7 @@ const Details = (props) => {
     const navigate = useNavigate();
     
     const journalEntry = entries.find(entry => entry._id == journalEntryId);
+    console.log(journalEntry);
 
     const backClickHandler = () => {
         navigate(-1);

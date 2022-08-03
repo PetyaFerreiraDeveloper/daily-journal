@@ -1,24 +1,97 @@
-import React from "react";
-import Hero from "../Hero";
+//TODO add to Favorites functionality
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import hero from '../../assets/hero.jpg';
-import CreateForm from "./CreateForm";
+const CreateEntry = (props) => {
+  const {addEntryHandler} = props;
 
-const CreateEntry = () => {
+    const [newEntry, setNewEntry] = useState({
+      entryTitle: '',
+      category: '',
+      createdOn: '',
+      journalEntry: ''
+    });
+
+    const navigate = useNavigate();
+
+    const createHandler = (e) => {
+      e.preventDefault();
+      console.log('submit');
+      console.log(newEntry);
+      navigate('/my-journal',  { replace: true })
+      addEntryHandler(newEntry);
+    };
+
+    const onChange = (e) => {
+      setNewEntry(state => ({
+        ...state,
+        [e.target.name]: e.target.value
+      }))
+    }
+
   return (
-    <div>
-      <Hero
-        articleTitle={"Creaty entry"}
-        description={"What happened today"}
-        label={"Start your journal"}
-        navigateTo={"/create-form"}
-        imageUrl={hero}
-        className={"bg-heroGreen text-white"}
-        imageAlt={"laptop, computer and notebook with a pen on top of a desk"}
-      />
-      <CreateForm />
-    </div>
-  );
-};
+    <form
+        onSubmit={createHandler}
+        id="register"
+        className="flex flex-col justify-center border-2 m-auto gap-y-6 p-6 bg-white"
+      >
+        <div className="flex flex-col gap-y-5 ">
+          <h2 className="text-center">Create</h2>
+          <div className="flex gap-x-3 justify-between">
+            <label htmlFor="entryTitle">Entry Title</label>
+            <input
+              type="text"
+              id="entryTitle"
+              name="entryTitle"
+              placeholder="Entry Title"
+              className="border-2"
+              onChange={onChange}
+              value={newEntry.entryTitle}
+            />
+          </div>
+          <div className="flex gap-x-3 justify-between">
+            <label htmlFor="category">Category</label>
+            <input
+              type="text"
+              id="category"
+              name="category"
+              placeholder="Fun"
+              className="border-2"
+              onChange={onChange}
+              value={newEntry.category}
+            />
+          </div>
+          <div className="flex gap-x-3 justify-between">
+            <label htmlFor="createdOn">Date:</label>
+            <input 
+              className="border-2" 
+              type="text" 
+              name="createdOn" 
+              id="createdOn" 
+              onChange={onChange}
+              value={newEntry.createdOn}
+            />
+          </div>
+          <div className="flex gap-x-3 justify-between">
+            <label htmlFor="journalEntry">Todays Entry:</label>
+            
+            <textarea 
+              name="journalEntry" 
+              id="journalEntry" 
+              placeholder="Start your entry today" 
+              className="border-2"
+              onChange={onChange}
+              value={newEntry.journalEntry}
+            >
 
-export default CreateEntry;
+            </textarea>
+          </div>
+          <input className="border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center cursor-pointer" type="submit" value="Create" />
+          <input type="text" />
+          
+        </div>
+      </form>
+  )
+}
+
+export default CreateEntry
