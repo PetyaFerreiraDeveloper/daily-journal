@@ -1,15 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { JournalContext } from '../../contexts/JournalContext';
 
 import Hero from '../Hero';
-import Catalog from './JournalList';
+import JournalList from './JournalList';
 
 import hero from '../../assets/hero.jpg';
 
 
 const MyJournal = () => {
-  const { entries } = useContext(JournalContext);
   return (
     <div>
         <Hero 
@@ -23,7 +21,7 @@ const MyJournal = () => {
             className={"bg-heroGreen text-white"}
             imageAlt={"laptop, computer and notebook with a pen on top of a desk"}
         />
-        <Catalog entries={entries}/>
+        <JournalList />
     </div>
   )
 }

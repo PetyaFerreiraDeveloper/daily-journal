@@ -48,51 +48,16 @@ function App() {
       <JournalContext.Provider value={{entries, addEntry}}>
       <div>
         <Routes>
-          <Route path="/" element={
-              <Layout>
-                {" "}
-                <Home />{" "}
-              </Layout>
-            }
-          />
+          <Route path="/" element={<Layout><Home /></Layout>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/about"
-            element={
-              <Layout>
-                {" "}
-                <About />{" "}
-              </Layout>
-            }
-          />
-          <Route path="/my-journal"
-            element={
-              <Layout>
-                {" "}
-                <MyJournal />{" "}
-              </Layout>
-            }
-          />
+          <Route path="/about" element={<Layout><About /></Layout>}/>
+          <Route path="/my-journal" element={<Layout><MyJournal /></Layout>}/>
 
           <Route
-            path="/my-journal/:journalEntryId"
-            element={
-              <Layout>
-                {" "}
-                <Details />{" "}
-              </Layout>
-            }
-          />
-          <Route
-            path="/my-journal/:journalEntryId/edit"
-            element={
-              <Layout>
-                {" "}
-                <EditEntry />{" "}
-              </Layout>
-            }
-          />
+            path="/my-journal/:journalEntryId" element={<Layout><Details /></Layout>}/>
+          <Route path="/my-journal/:journalEntryId/edit" element={ <Layout> <EditEntry /></Layout>}/>
 
           <Route
             path="/create"

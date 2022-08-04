@@ -1,30 +1,34 @@
 //TODO add to Favorites functionality
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+import * as journalService from '../../services/journalService';
+import {JournalContext} from '../../contexts/JournalContext';
+
 const EditEntry = () => {
-  const [newEntry, setNewEntry] = useState({
-    title: "",
-    category: "",
-    journalEntry: "",
-  });
-
+  const { journalEntryId } = useParams();
   const navigate = useNavigate();
+  const { entries } = useContext(JournalContext);
+  const journalEntry = entries.find(entry => entry._id === journalEntryId);
 
-  const { entryId } = useParams();
+  const [currentEntry, setCurrentEntry] = useState(journalEntry);
 
   const backClickHandler = () => {
-    navigate(-1);
+    navigate(-1, {replace: true});
   };
 
-  const createEntryHandler = (e) => {
+  const editEntryHandler = (e) => {
     e.preventDefault();
-    console.log("submit");
-    console.log(newEntry);
+    journalService.edit(journalEntryId, currentEntry)
+      .then(result => {
+        setCurrentEntry(result);
+        console.log(result);
+      })
+      navigate(`/my-journal/${journalEntryId}`)
   };
 
   const onChange = (e) => {
-    setNewEntry((state) => ({
+    setCurrentEntry((state) => ({
       ...state,
       [e.target.name]: e.target.value,
     }));
@@ -32,7 +36,7 @@ const EditEntry = () => {
 
   return (
     <form
-      onSubmit={createEntryHandler}
+      onSubmit={editEntryHandler}
       id="register"
       className="flex flex-col justify-center border-2 m-auto gap-y-6 p-6 bg-white"
     >
@@ -47,7 +51,7 @@ const EditEntry = () => {
             placeholder="Fun"
             className="border-2"
             onChange={onChange}
-            value={newEntry.category}
+            value={currentEntry.category}
           />
         </div>
 
@@ -60,7 +64,8 @@ const EditEntry = () => {
             placeholder="Entry Title"
             className="border-2"
             onChange={onChange}
-            value={newEntry.title}
+            value={currentEntry.title}
+
           />
         </div>
 
@@ -73,7 +78,8 @@ const EditEntry = () => {
             placeholder="Start your entry today"
             className="border-2"
             onChange={onChange}
-            value={newEntry.journalEntry}
+            value={currentEntry.journalEntry}
+
           ></textarea>
         </div>
         <div>

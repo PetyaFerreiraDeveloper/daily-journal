@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
+import * as journalService from '../../services/journalService';
 import JournalEntry from "./JournalEntry";
 
-const JournalList = (props) => {
-  const {entries} = props;
+const JournalList = () => {
+  const [entries, setEntries] = useState([]);
+
+  useEffect(() => {
+    journalService.getAll().then((result) => {
+      setEntries(result);
+    });
+  }, []);
+
 
   return (
     <section>
