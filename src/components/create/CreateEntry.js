@@ -2,14 +2,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import * as journalService from "../../services/journalService";
+
 const CreateEntry = (props) => {
   const { addEntryHandler } = props;
-  const [errors, setErrors] = useState({});
+  // const [errors, setErrors] = useState({});
 
   const [newEntry, setNewEntry] = useState({
-    entryTitle: "",
+    title: "",
     category: "",
-    createdOn: "",
     journalEntry: "",
   });
 
@@ -17,7 +18,10 @@ const CreateEntry = (props) => {
 
   const createHandler = (e) => {
     e.preventDefault();
-    addEntryHandler(newEntry);
+    journalService.create(newEntry).then((result) => {
+      addEntryHandler(result);
+    });
+
     navigate("/my-journal", { replace: true });
   };
 
@@ -28,8 +32,7 @@ const CreateEntry = (props) => {
     }));
   };
 
-  const isFormNotValid = !Object.values(newEntry).some(x => x == '');
-  console.log(Object.values(newEntry).some(x => x == ''));
+  const isFormNotValid = !Object.values(newEntry).some((x) => x === "");
   return (
     <form
       onSubmit={createHandler}
@@ -38,18 +41,7 @@ const CreateEntry = (props) => {
     >
       <div className="flex flex-col gap-y-5 ">
         <h2 className="text-center">Create</h2>
-        <div className="flex gap-x-3 justify-between">
-          <label htmlFor="entryTitle">Entry Title</label>
-          <input
-            type="text"
-            id="entryTitle"
-            name="entryTitle"
-            placeholder="Entry Title"
-            className="border-2"
-            onChange={onChange}
-            value={newEntry.entryTitle}
-          />
-        </div>
+
         <div className="flex gap-x-3 justify-between">
           <label htmlFor="category">Category</label>
           <input
@@ -62,17 +54,20 @@ const CreateEntry = (props) => {
             value={newEntry.category}
           />
         </div>
+
         <div className="flex gap-x-3 justify-between">
-          <label htmlFor="createdOn">Date:</label>
+          <label htmlFor="title">Entry Title</label>
           <input
-            className="border-2"
             type="text"
-            name="createdOn"
-            id="createdOn"
+            id="title"
+            name="title"
+            placeholder="Entry Title"
+            className="border-2"
             onChange={onChange}
-            value={newEntry.createdOn}
+            value={newEntry.title}
           />
         </div>
+
         <div className="flex gap-x-3 justify-between">
           <label htmlFor="journalEntry">Todays Entry:</label>
 
@@ -86,7 +81,9 @@ const CreateEntry = (props) => {
           ></textarea>
         </div>
         <input
-          className={`border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center ${!isFormNotValid ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+          className={`border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center ${
+            !isFormNotValid ? "cursor-not-allowed" : "cursor-pointer"
+          }`}
           type="submit"
           value="Create"
           disabled={!isFormNotValid}

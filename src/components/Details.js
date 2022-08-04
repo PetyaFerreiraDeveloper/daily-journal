@@ -19,11 +19,11 @@ const Details = (props) => {
   return (
     <section className="border-2">
         <h2>Journal Entry Details</h2>
-        <p>{journalEntry.category}</p>
-        <p>{journalEntry.title}</p>
-        <p>{dateFormatter(journalEntry._createdOn)}</p>
-        <p>{dateFormatter(journalEntry._editedOn)}</p>
-        <p>{journalEntry.journalEntry}</p>
+        <p>{`Category: ${journalEntry.category}`}</p>
+        <p>{`Title: ${journalEntry.title}`}</p>
+        <p>{`Created on: ${dateFormatter(journalEntry._createdOn)}`}</p>
+        <p>{`Edited on: ${dateFormatter(journalEntry._editedOn)}`}</p>
+        <p>{`Journal Entry: ${journalEntry.journalEntry}`}</p>
         <button 
             className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
             onClick={backClickHandler}
