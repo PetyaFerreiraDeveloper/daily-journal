@@ -1,15 +1,29 @@
-import React from "react";
+// TODO: show logout button next to user email
+
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { pages } from "../../constants/pages";
+import { AuthContext } from "../../contexts/AuthContext";
+
+import { privatePages , publicPages } from "../../constants/pages";
 import CloseIcon from "../svg/CloseIcon";
 import PageLink from '../common/PageLink';
 
 const BurgerMenu = ({ className }) => {
+  const { user } = useContext(AuthContext);
+  let pages;
+  if (user.email) {
+    pages = privatePages;
+  } else {
+    pages = publicPages;
+  }
+
   return (
     <div className={className}>
       <div className="flex justify-between gap-x-8 items-center border-b-[3px] border-gray-300 pr-8 pl-7 py-1 h-[72px] md:h-[91px]">
-        <div className="flex justify-between gap-x-4">
+      {user.email
+        ? <p>{user.email}</p>
+        : <div className="flex justify-between gap-x-4">
           <Link
             to={"/login"}
             className="rounded-full border-2 bg-blue-500 border-black xxs:px-5 px-8 py-2"
@@ -22,7 +36,9 @@ const BurgerMenu = ({ className }) => {
           >
             Register
           </Link>
-        </div>
+          </div>
+        }
+
         <CloseIcon
           width={20}
           height={20}

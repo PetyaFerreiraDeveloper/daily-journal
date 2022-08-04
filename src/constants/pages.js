@@ -1,4 +1,4 @@
-export const pages = [
+export const privatePages = [
   {
     page: "Home",
     navigation: "/",
@@ -19,16 +19,23 @@ export const pages = [
     page: "Create",
     navigation: "/create",
   },
-  // {
-  //   page: "Login",
-  //   navigation: "/login",
-  // },
-  // {
-  //   page: "Register",
-  //   navigation: "/register",
-  // },
   {
     page: "Logout",
     navigation: "/logout",
   },
+];
+
+export const publicPages = [
+  {
+    page: "Home",
+    navigation: "/",
+  },
+  {
+    page: "Blog",
+    navigation: "/blog",
+  },
+  {
+    page: "About us",
+    navigation: "/about",
+  }
 ];

@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../services/authService";
+import * as authService from "../services/authService";
+
+import { AuthContext } from "../contexts/AuthContext";
 
 const Login = () => {
+  const { userLogin } = useContext(AuthContext)
   const navigate = useNavigate();
   const [values, setValues] = useState({
     email: "",
@@ -13,13 +16,14 @@ const Login = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const res = await login(values);
+    const res = await authService.login(values);
     if (res.code === 403) {
       setError(res.message)
     } else {
       setError(null)
-      console.log(res);
-      navigate('/');
+      // console.log(res);
+      userLogin(res);
+      navigate('/my-journal');
     }
   };
 

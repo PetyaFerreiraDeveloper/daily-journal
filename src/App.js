@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import uniqid from 'uniqid';
+import uniqid from "uniqid";
 
-import * as journalService from './services/journalService';
+import * as journalService from "./services/journalService";
+import { AuthContext } from "./contexts/AuthContext";
 
 import Layout from "./layout/Layout";
 import Home from "./components/home/Home";
@@ -17,18 +18,23 @@ import EditEntry from "./components/edit/EditEntry";
 import NotFound from "./components/NotFound";
 
 function App() {
-
   const [entries, setEntries] = useState([]);
+  const [auth, setAuth] = useState({});
+
+  const userLogin = (authData) => {
+    setAuth(authData)
+  };
+
 
   const addEntryHandler = (entryData) => {
-    setEntries(state => [
+    setEntries((state) => [
       ...state,
       {
         ...entryData,
-        _id: uniqid()
-      }
-    ])
-  }
+        _id: uniqid(),
+      },
+    ]);
+  };
 
   useEffect(() => {
     journalService.getAll().then((result) => {
@@ -37,23 +43,73 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Layout> <Home /> </Layout>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/about" element={<Layout> <About /> </Layout>}  />
-        <Route path="/my-journal" element={<Layout> <MyJournal entries={entries}/> </Layout>}  />
-        
-        <Route path="/my-journal/:journalEntryId" element={<Layout> <Details entries={entries}/> </Layout>}  />
-        <Route path="/my-journal/:journalEntryId/edit" element={<Layout> <EditEntry /> </Layout>}  />
+    <AuthContext.Provider value={{user: auth, userLogin}}>
+      <div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout>
+                {" "}
+                <Home />{" "}
+              </Layout>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route
+            path="/about"
+            element={
+              <Layout>
+                {" "}
+                <About />{" "}
+              </Layout>
+            }
+          />
+          <Route
+            path="/my-journal"
+            element={
+              <Layout>
+                {" "}
+                <MyJournal entries={entries} />{" "}
+              </Layout>
+            }
+          />
 
-        <Route path="/create" element={<Layout> <CreateEntry addEntryHandler={addEntryHandler} /> </Layout>}  />
-        <Route path="/404" element={ <NotFound /> }  />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+          <Route
+            path="/my-journal/:journalEntryId"
+            element={
+              <Layout>
+                {" "}
+                <Details entries={entries} />{" "}
+              </Layout>
+            }
+          />
+          <Route
+            path="/my-journal/:journalEntryId/edit"
+            element={
+              <Layout>
+                {" "}
+                <EditEntry />{" "}
+              </Layout>
+            }
+          />
+
+          <Route
+            path="/create"
+            element={
+              <Layout>
+                {" "}
+                <CreateEntry addEntryHandler={addEntryHandler} />{" "}
+              </Layout>
+            }
+          />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </AuthContext.Provider>
   );
 }
 

@@ -7,6 +7,7 @@ const PageLink = ({ link }) => {
   return (
     <NavLink 
       to={navigation}
+      className="p-3"
       style={(navLinkProps) => {
         return navLinkProps.isActive
          ? {
