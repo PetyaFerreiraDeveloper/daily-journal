@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import uniqid from "uniqid";
 
+import useLocalStorage from './hooks/useLocalStorage';
 import * as journalService from "./services/journalService";
 import { AuthContext } from "./contexts/AuthContext";
 
@@ -19,7 +20,7 @@ import NotFound from "./components/NotFound";
 
 function App() {
   const [entries, setEntries] = useState([]);
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useLocalStorage('auth', {});
 
   const userLogin = (authData) => {
     setAuth(authData);
@@ -32,10 +33,7 @@ function App() {
   const addEntryHandler = (entryData) => {
     setEntries((state) => [
       ...state,
-      {
-        ...entryData,
-        _id: uniqid(),
-      },
+      entryData
     ]);
   };
 
