@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import hero from "../assets/hero.jpg";
 
 const Hero = (props) => {
   const { articleTitle, description, label, imageUrl, imageAlt, navigateTo, className} =

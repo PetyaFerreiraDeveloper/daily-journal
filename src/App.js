@@ -11,11 +11,12 @@ import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Register from "./components/Register";
 import About from "./components/About";
-import JournalList from "./components/catalog/JournalList";
+import JournalList from "./components/myJournal/JournalList";
 import CreateEntry from "./components/create/CreateEntry";
 import Details from "./components/Details";
 import EditEntry from "./components/edit/EditEntry";
 import NotFound from "./components/NotFound";
+import BlogList from "./components/blog/BlogList";
 
 function App() {
   const [entries, setEntries] = useState([]);
@@ -87,6 +88,15 @@ function App() {
                 <Layout>
                   {" "}
                   <CreateEntry />{" "}
+                </Layout>
+              }
+            />
+            <Route
+              path="/blog"
+              element={
+                <Layout>
+                  {" "}
+                  <BlogList />{" "}
                 </Layout>
               }
             />

@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
+import { AuthContext } from "../../contexts/AuthContext";
 import * as journalService from '../../services/journalService';
 import JournalEntry from "./JournalEntry";
 
 const JournalList = () => {
   const [entries, setEntries] = useState([]);
-
-  useEffect(() => {
-    journalService.getAll().then((result) => {
-      setEntries(result);
-    });
-  }, []);
+  const { user } = useContext(AuthContext);
 
   // useEffect(() => {
-  //   journalService.getAllByOwner()
-  //     .then((result) => {
-  //       setEntries(result);
-  //     });
+  //   journalService.getAll().then((result) => {
+  //     setEntries(result);
+  //   });
   // }, []);
 
+  useEffect(() => {
+    journalService.getAllByOwner(user._id)
+      .then((result) => {
+        setEntries(result);
+      });
+  }, [user._id]);
 
   return (
     <section>

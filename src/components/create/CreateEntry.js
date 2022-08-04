@@ -13,6 +13,7 @@ const CreateEntry = () => {
     title: "",
     category: "",
     journalEntry: "",
+    blog: false
   });
 
   const navigate = useNavigate();
@@ -26,10 +27,18 @@ const CreateEntry = () => {
     navigate("/my-journal", { replace: true });
   };
 
+  // const onChange = (e) => {
+  //   setNewEntry((state) => ({
+  //     ...state,
+  //     [e.target.name]: e.target.value,
+  //   }));
+  // };
+
   const onChange = (e) => {
     setNewEntry((state) => ({
       ...state,
-      [e.target.name]: e.target.value,
+      [e.target.name]:
+        e.target.type === "checkbox" ? e.target.checked : e.target.value,
     }));
   };
 
@@ -81,6 +90,18 @@ const CreateEntry = () => {
             value={newEntry.journalEntry}
           ></textarea>
         </div>
+
+        <div>
+          <label htmlFor="blog">Share this record on the Blog</label>
+          <input
+            type="checkbox"
+            name="blog"
+            id="blog"
+            checked={newEntry.blog}
+            onChange={onChange}
+          />
+        </div>
+
         <input
           className={`border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center ${
             !isFormNotValid ? "cursor-not-allowed" : "cursor-pointer"

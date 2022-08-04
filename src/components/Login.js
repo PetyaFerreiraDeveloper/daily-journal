@@ -21,7 +21,7 @@ const Login = () => {
       setError(res.message)
     } else {
       setError(null)
-      console.log(res);
+      // console.log(res);
       userLogin(res);
       navigate('/my-journal');
     }
