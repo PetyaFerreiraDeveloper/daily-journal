@@ -1,6 +1,6 @@
 //TODO add to Favorites functionality
 import React, { useState, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import * as journalService from '../../services/journalService';
 import {JournalContext} from '../../contexts/JournalContext';
@@ -14,7 +14,7 @@ const EditEntry = () => {
   const [currentEntry, setCurrentEntry] = useState(journalEntry);
 
   const backClickHandler = () => {
-    navigate(-1, {replace: true});
+    navigate(-1);
   };
 
   const editEntryHandler = (e) => {
@@ -24,7 +24,7 @@ const EditEntry = () => {
         setCurrentEntry(result);
         console.log(result);
       })
-      navigate(`/my-journal/${journalEntryId}`)
+      navigate(-1)
   };
 
   const onChange = (e) => {
@@ -85,6 +85,7 @@ const EditEntry = () => {
         <div className="flex gap-x-3">
           <button
             className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
+            // to={`/entry/${journalEntryId}`}
             onClick={backClickHandler}
           >
             Back

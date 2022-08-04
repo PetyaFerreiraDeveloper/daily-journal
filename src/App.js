@@ -47,59 +47,18 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/logout" element={<Logout />} />
-            <Route
-              path="/about"
-              element={
-                <Layout>
-                  <About />
-                </Layout>
-              }
-            />
-            <Route
-              path="/my-journal"
-              element={
-                <Layout>
-                  <JournalList />
-                </Layout>
-              }
-            />
+            <Route path="/about"element={<Layout><About /></Layout>}/>
 
-            <Route
-              path="/my-journal/:journalEntryId"
-              element={
-                <Layout>
-                  <Details />
-                </Layout>
-              }
-            />
-            <Route
-              path="/my-journal/:journalEntryId/edit"
-              element={
-                <Layout>
-                  {" "}
-                  <EditEntry />
-                </Layout>
-              }
-            />
+            <Route path="/my-journal" element={ <Layout><JournalList /> </Layout>}/>
+            {/* <Route path="/my-journal/:journalEntryId" element={ <Layout><Details /> </Layout>}/> */}
+            <Route path="/entry/:journalEntryId/edit" element={ <Layout><EditEntry /> </Layout>}/>
 
-            <Route
-              path="/create"
-              element={
-                <Layout>
-                  {" "}
-                  <CreateEntry />{" "}
-                </Layout>
-              }
-            />
-            <Route
-              path="/blog"
-              element={
-                <Layout>
-                  {" "}
-                  <BlogList />{" "}
-                </Layout>
-              }
-            />
+            <Route path="/blog" element={<Layout><BlogList /></Layout>}/>
+            {/* <Route path="/blog/:journalEntryId" element={ <Layout><Details /> </Layout>}/> */}
+            <Route path="/entry/:journalEntryId" element={ <Layout><Details /> </Layout>}/>
+
+
+            <Route path="/create" element={<Layout><CreateEntry /></Layout>}/>
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
