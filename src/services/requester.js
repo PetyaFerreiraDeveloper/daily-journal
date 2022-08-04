@@ -16,7 +16,6 @@ const request = async (method, url, data) => {
         }
 
         const response = await buildRequest;
-
         const result = await response.json();
         return result
     } catch (err) {

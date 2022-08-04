@@ -22,9 +22,12 @@ function App() {
   const [auth, setAuth] = useState({});
 
   const userLogin = (authData) => {
-    setAuth(authData)
+    setAuth(authData);
   };
 
+  const userLogout = () => {
+    setAuth({});
+  };
 
   const addEntryHandler = (entryData) => {
     setEntries((state) => [
@@ -43,7 +46,7 @@ function App() {
   }, []);
 
   return (
-    <AuthContext.Provider value={{user: auth, userLogin}}>
+    <AuthContext.Provider value={{user: auth, userLogin, userLogout}}>
       <div>
         <Routes>
           <Route
@@ -58,8 +61,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />
-          <Route
-            path="/about"
+          <Route path="/about"
             element={
               <Layout>
                 {" "}
@@ -67,8 +69,7 @@ function App() {
               </Layout>
             }
           />
-          <Route
-            path="/my-journal"
+          <Route path="/my-journal"
             element={
               <Layout>
                 {" "}
