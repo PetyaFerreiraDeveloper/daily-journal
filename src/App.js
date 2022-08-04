@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import uniqid from "uniqid";
 
 import useLocalStorage from './hooks/useLocalStorage';
 import * as journalService from "./services/journalService";
 import { AuthContext } from "./contexts/AuthContext";
+import { JournalContext } from "./contexts/JournalContext";
 
 import Layout from "./layout/Layout";
 import Home from "./components/home/Home";
@@ -30,7 +30,7 @@ function App() {
     setAuth({});
   };
 
-  const addEntryHandler = (entryData) => {
+  const addEntry = (entryData) => {
     setEntries((state) => [
       ...state,
       entryData
@@ -45,11 +45,10 @@ function App() {
 
   return (
     <AuthContext.Provider value={{user: auth, userLogin, userLogout}}>
+      <JournalContext.Provider value={{entries, addEntry}}>
       <div>
         <Routes>
-          <Route
-            path="/"
-            element={
+          <Route path="/" element={
               <Layout>
                 {" "}
                 <Home />{" "}
@@ -71,7 +70,7 @@ function App() {
             element={
               <Layout>
                 {" "}
-                <MyJournal entries={entries} />{" "}
+                <MyJournal />{" "}
               </Layout>
             }
           />
@@ -81,7 +80,7 @@ function App() {
             element={
               <Layout>
                 {" "}
-                <Details entries={entries} />{" "}
+                <Details />{" "}
               </Layout>
             }
           />
@@ -100,7 +99,7 @@ function App() {
             element={
               <Layout>
                 {" "}
-                <CreateEntry addEntryHandler={addEntryHandler} />{" "}
+                <CreateEntry />{" "}
               </Layout>
             }
           />
@@ -108,6 +107,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
+      </JournalContext.Provider>
     </AuthContext.Provider>
   );
 }

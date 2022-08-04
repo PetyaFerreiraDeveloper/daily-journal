@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { JournalContext } from '../../contexts/JournalContext';
+
 import Hero from '../Hero';
 import Catalog from './JournalList';
 
 import hero from '../../assets/hero.jpg';
 
 
-const MyJournal = ( props ) => {
-  const {entries} = props;
+const MyJournal = () => {
+  const { entries } = useContext(JournalContext);
   return (
     <div>
         <Hero 

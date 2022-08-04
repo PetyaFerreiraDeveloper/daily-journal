@@ -1,11 +1,12 @@
 //TODO add to Favorites functionality
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { JournalContext } from "../../contexts/JournalContext";
 import * as journalService from "../../services/journalService";
 
-const CreateEntry = (props) => {
-  const { addEntryHandler } = props;
+const CreateEntry = () => {
+  const { addEntry} = useContext(JournalContext);
   // const [errors, setErrors] = useState({});
 
   const [newEntry, setNewEntry] = useState({
@@ -19,7 +20,7 @@ const CreateEntry = (props) => {
   const createHandler = (e) => {
     e.preventDefault();
     journalService.create(newEntry).then((result) => {
-      addEntryHandler(result);
+      addEntry(result);
     });
 
     navigate("/my-journal", { replace: true });

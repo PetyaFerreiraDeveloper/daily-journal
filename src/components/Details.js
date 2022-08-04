@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+
+import { JournalContext } from '../contexts/JournalContext';
 
 import { dateFormatter } from '../utils/dateFormatter';
 
 
-const Details = (props) => {
-    const {entries} = props;
+const Details = () => {
+    const { entries } = useContext(JournalContext)
     const { journalEntryId } = useParams();
     const navigate = useNavigate();
     
     const journalEntry = entries.find(entry => entry._id == journalEntryId);
-    console.log(journalEntry);
 
     const backClickHandler = () => {
         navigate(-1);
@@ -22,7 +23,11 @@ const Details = (props) => {
         <p>{`Category: ${journalEntry.category}`}</p>
         <p>{`Title: ${journalEntry.title}`}</p>
         <p>{`Created on: ${dateFormatter(journalEntry._createdOn)}`}</p>
-        <p>{`Edited on: ${dateFormatter(journalEntry._editedOn)}`}</p>
+        {journalEntry._editedOn
+            ? <p>{`Edited on: ${dateFormatter(journalEntry._editedOn)}`}</p>
+            : null
+        }
+        
         <p>{`Journal Entry: ${journalEntry.journalEntry}`}</p>
         <button 
             className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
