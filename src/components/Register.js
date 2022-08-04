@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import {AuthContext} from '../contexts/AuthContext';
@@ -6,6 +6,7 @@ import {AuthContext} from '../contexts/AuthContext';
 import * as authService from '../services/authService';
 
 const Register = () => {
+  const [error, setError] = useState(false);
   const { userLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -17,8 +18,14 @@ const Register = () => {
     const password = formData.get('password');
     const confirmPass = formData.get('confirmPass');
 
+    if (password !== confirmPass) {
+      setError(true);
+      return;
+    }
+
     authService.register(email, password)
       .then((authData) => {
+        setError(false);
         userLogin(authData);
         navigate('/');
       })
@@ -56,7 +63,11 @@ const Register = () => {
               className="border-2"
             />
           </div>
-          <input className="border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center cursor-pointer" type="submit" defaultValue="Register" />
+          {error
+            ? <p className="text-red-400">Passwords don't match</p>
+            : null
+          }
+          <input className="border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center cursor-pointer" type="submit" value="Register" />
           <p className="self-end">
             <span>
               If you already have profile{" "}
