@@ -12,6 +12,13 @@ const JournalList = () => {
     });
   }, []);
 
+  // useEffect(() => {
+  //   journalService.getAllByOwner()
+  //     .then((result) => {
+  //       setEntries(result);
+  //     });
+  // }, []);
+
 
   return (
     <section>

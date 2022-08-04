@@ -4,6 +4,8 @@ const baseUrl = 'http://localhost:3030/data/journals';
 
 export const getAll = () =>  request.get(baseUrl);
 
+export const getAllByOwner = (ownerId) =>  request.get(`${baseUrl}?where=_ownerId%3D%22${ownerId}%22`)
+
 export const getOne = (entryId) => request.get(`${baseUrl}/${entryId}`);
 
 export const create = (journalEntry) => request.post(baseUrl, journalEntry);

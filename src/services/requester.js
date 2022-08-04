@@ -29,7 +29,7 @@ const request = async (method, url, data) => {
         const result = await response.json();
         return result
     } catch (err) {
-        // console.log(err);
+        console.log(err);
         throw new Error(err);
     }
 

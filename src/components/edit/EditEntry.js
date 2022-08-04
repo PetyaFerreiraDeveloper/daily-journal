@@ -6,8 +6,8 @@ import * as journalService from '../../services/journalService';
 import {JournalContext} from '../../contexts/JournalContext';
 
 const EditEntry = () => {
-  const { journalEntryId } = useParams();
   const navigate = useNavigate();
+  const { journalEntryId } = useParams();
   const { entries } = useContext(JournalContext);
   const journalEntry = entries.find(entry => entry._id === journalEntryId);
 
@@ -82,7 +82,7 @@ const EditEntry = () => {
 
           ></textarea>
         </div>
-        <div>
+        <div className="flex gap-x-3">
           <button
             className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
             onClick={backClickHandler}
@@ -90,7 +90,7 @@ const EditEntry = () => {
             Back
           </button>
           <input
-            className="rounded-full border-2 bg-green-700 text-white px-8 py-2 cursor-pointer"
+            className="rounded-full border-2 border-green-800 bg-green-700 text-white px-8 py-2 cursor-pointer"
             type="submit"
             value="Save"
           />
