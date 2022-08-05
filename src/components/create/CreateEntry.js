@@ -13,7 +13,8 @@ const CreateEntry = () => {
     title: "",
     category: "",
     journalEntry: "",
-    blog: false
+    blog: false,
+    authorName: ''
   });
 
   const navigate = useNavigate();
@@ -27,13 +28,6 @@ const CreateEntry = () => {
     navigate("/my-journal", { replace: true });
   };
 
-  // const onChange = (e) => {
-  //   setNewEntry((state) => ({
-  //     ...state,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // };
-
   const onChange = (e) => {
     setNewEntry((state) => ({
       ...state,
@@ -41,6 +35,8 @@ const CreateEntry = () => {
         e.target.type === "checkbox" ? e.target.checked : e.target.value,
     }));
   };
+
+  console.log(newEntry);
 
   const isFormNotValid = !Object.values(newEntry).some((x) => x === "");
   return (
@@ -101,6 +97,22 @@ const CreateEntry = () => {
             onChange={onChange}
           />
         </div>
+        {newEntry.blog
+          ? <div className="flex gap-x-3 justify-between">
+              <label htmlFor="authorName">What author name do you want to post your blog with?</label>
+              <input
+                type="text"
+                id="authorName"
+                name="authorName"
+                placeholder="your name"
+                className="border-2"
+                onChange={onChange}
+                value={newEntry.authorName}
+              />
+            </div>
+            : null
+        }
+        
 
         <input
           className={`border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center ${

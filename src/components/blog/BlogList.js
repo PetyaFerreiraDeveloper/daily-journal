@@ -15,13 +15,13 @@ const BlogList = () => {
 
   return (
     <section>
-      <h2>your blog entire</h2>
+      <h2>Latest blog entries</h2>
       {entries.length > 0 ? (
         entries.map((entry) => (
           <JournalEntry key={entry._id} journalEntry={entry} />
         ))
       ) : (
-        <p>You don't have any journal entries yet</p>
+        <p>There are no blog entries yet</p>
       )}
     </section>
   );

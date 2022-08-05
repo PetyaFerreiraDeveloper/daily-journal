@@ -1,0 +1,14 @@
+
+FUNCTIONALITY
+[x] - add who wrote the blog to the blog posts
+[x] - show the author only on the blog page
+[] - jest tests
+[] - delete journal entry
+
+
+CONTENT
+[] - content on about us page
+
+STYLING
+
+[] - create page
