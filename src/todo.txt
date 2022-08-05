@@ -6,6 +6,7 @@ FUNCTIONALITY
 [] - show message on successful delete
 [] - forms validation
 [] - jest tests
+[x] - on create of a blog direct me to the blog page otherwise to journal page
 
 
 CONTENT

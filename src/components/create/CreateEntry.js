@@ -25,7 +25,11 @@ const CreateEntry = () => {
       addEntry(result);
     });
 
-    navigate("/my-journal", { replace: true });
+    if (newEntry.blog === true) {
+      navigate("/blog", { replace: true });
+    } else {
+      navigate("/my-journal", { replace: true });
+    }
   };
 
   const onChange = (e) => {
@@ -36,7 +40,7 @@ const CreateEntry = () => {
     }));
   };
 
-  const isFormNotValid = !Object.values(newEntry).some((x) => x === "");
+  // const isFormNotValid = !Object.values(newEntry).some((x) => x === "");
   return (
     <form
       onSubmit={createHandler}
@@ -113,12 +117,10 @@ const CreateEntry = () => {
         
 
         <input
-          className={`border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center ${
-            !isFormNotValid ? "cursor-not-allowed" : "cursor-pointer"
-          }`}
+          className={`border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center cursor-pointer`}
           type="submit"
           value="Create"
-          disabled={!isFormNotValid}
+          // disabled={!isFormNotValid}
         />
       </div>
     </form>
