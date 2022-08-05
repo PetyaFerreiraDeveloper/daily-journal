@@ -1,3 +1,18 @@
+PAGES
+-- Public
+[x] - Home page
+[x] - Blog page
+[x] - About us page
+[x] - Login page
+[x] - Register page
+
+-- Private
+[x] - My Journal Page
+[x] - Create Page
+[x] - Details Page
+[x] - Edit Page
+[x] - Delete Page
+[x] - Logout Page
 
 FUNCTIONALITY
 [x] - add who wrote the blog to the blog posts
@@ -10,8 +25,28 @@ FUNCTIONALITY
 
 
 CONTENT
-[] - content on about us page
+[x] - Home page
+[x] - Blog page - check how it looks if there are no blog posts
+[x] - About us page
+[x] - Login page
+[x] - Register page
+[x] - My Journal Page
+[] - Create Page
+[] - Details Page
+[] - Edit Page
+[] - Delete Page
+[] - Logout Page
 
 STYLING
 
-[] - create page
+[x] - Home page
+[x] - Blog page
+[x] - About us page
+[] - Login page
+[] - Register page
+[x] - My Journal Page
+[] - Create Page
+[] - Details Page
+[] - Edit Page
+[] - Delete Page
+[] - Logout Page

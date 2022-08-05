@@ -1,36 +1,35 @@
 import React, { useState, useEffect, useContext } from "react";
 
 import { AuthContext } from "../../contexts/AuthContext";
-import * as journalService from '../../services/journalService';
+import * as journalService from "../../services/journalService";
+import Button from "../common/Button";
+import NoEntries from "../common/NoEntries";
 import JournalEntry from "./JournalEntry";
 
 const JournalList = () => {
   const [entries, setEntries] = useState([]);
   const { user } = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   journalService.getAll().then((result) => {
-  //     setEntries(result);
-  //   });
-  // }, []);
-
   useEffect(() => {
-    journalService.getAllByOwner(user._id)
-      .then((result) => {
-        setEntries(result);
-      });
+    journalService.getAllByOwner(user._id).then((result) => {
+      setEntries(result);
+    });
   }, [user._id]);
 
   return (
-    <section>
-      <h2>All your journal entries are here</h2>
-      {entries.length > 0 ? (
-        entries.map((entry) => (
-          <JournalEntry key={entry._id} journalEntry={entry} />
-        ))
-      ) : (
-        <p>You don't have any journal entries yet</p>
-      )}
+    <section className="flex flex-col items-center gap-y-10 py-20">
+      {entries.length > 0
+        ? <h2>See all your journal entries in one place</h2>
+        : <NoEntries />
+      }
+      
+      <div className="grid grid-cols-1 place-items-center md:grid-cols-2 xl:grid-cols-3 gap-x-5 gap-y-4">
+        {entries.length > 0 ? (
+          entries.map((entry) => (
+            <JournalEntry key={entry._id} journalEntry={entry} />
+          ))
+        ) : null}
+      </div>
     </section>
   );
 };

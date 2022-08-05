@@ -11,13 +11,13 @@ import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Register from "./components/Register";
 import About from "./components/About";
-import JournalList from "./components/myJournal/JournalList";
+import MyJournal from "./components/myJournal/MyJournal";
 import CreateEntry from "./components/create/CreateEntry";
 import Details from "./components/Details";
 import Delete from "./components/Delete";
 import EditEntry from "./components/edit/EditEntry";
 import NotFound from "./components/NotFound";
-import BlogList from "./components/blog/BlogList";
+import Blog from "./components/blog/Blog";
 
 function App() {
   const [entries, setEntries] = useState([]);
@@ -50,11 +50,11 @@ function App() {
             <Route path="/logout" element={<Logout />} />
             <Route path="/about"element={<Layout><About /></Layout>}/>
 
-            <Route path="/my-journal" element={ <Layout><JournalList /> </Layout>}/>
+            <Route path="/my-journal" element={ <Layout><MyJournal /> </Layout>}/>
             {/* <Route path="/my-journal/:journalEntryId" element={ <Layout><Details /> </Layout>}/> */}
             <Route path="/entry/:journalEntryId/edit" element={ <Layout><EditEntry /> </Layout>}/>
 
-            <Route path="/blog" element={<Layout><BlogList /></Layout>}/>
+            <Route path="/blog" element={<Layout><Blog /></Layout>}/>
             {/* <Route path="/blog/:journalEntryId" element={ <Layout><Details /> </Layout>}/> */}
             <Route path="/entry/:journalEntryId" element={ <Layout><Details /> </Layout>}/>
 

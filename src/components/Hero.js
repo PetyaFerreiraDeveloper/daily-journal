@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Button from "./common/Button";
 
 const Hero = (props) => {
   const { articleTitle, description, label, imageUrl, imageAlt, navigateTo, className} =
@@ -17,12 +17,11 @@ const Hero = (props) => {
           <p className="text-center md:text-left">
             {description}
           </p>
-          <Link
-            to={navigateTo}
-            className="rounded-full border-2 border-orange-500 bg-orange-400 xxs:px-5 px-8 py-2"
-          >
-            {label}
-          </Link>
+          <Button 
+            label={label}
+            nav={navigateTo}
+            className={'bg-orange-400 border-orange-500'}
+          />
         </div>
       </div>
     </section>

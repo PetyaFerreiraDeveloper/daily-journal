@@ -7,14 +7,14 @@ const PageLink = ({ link }) => {
   return (
     <NavLink 
       to={navigation}
-      className="p-3"
+      className="rounded-full border-2 border-transparent"
       style={(navLinkProps) => {
         return navLinkProps.isActive
          ? {
-          backgroundColor: 'darkgreen',
-          padding: '8px 20px',
+          backgroundColor: '#006400',
+          padding: '11px 32px',
           borderRadius: '9999px',
-
+          borderColor: '#005000'
         }
          : null
       }}

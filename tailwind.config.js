@@ -15,6 +15,11 @@ module.exports = {
       backgroundImage: {
         heroMain: 'linear-gradient(180deg, #040094 0%, #201AF7 38.54%, #80DBE1 85.42%, #FFFFFF 100%)',
         heroGreen: 'linear-gradient(180deg, rgba(102,140,48,1) 0%, rgba(210,221,196,1) 100%)',
+      },
+      colors: {
+        'dark-green': '#006400',
+        'darker-green': '#005000',
+        'darkest-green': '#004000'
       }
     },
   },

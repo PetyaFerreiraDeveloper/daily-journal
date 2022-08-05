@@ -9,6 +9,7 @@ import SideNavigation from "./SideNavigation";
 
 import BurgerIcon from "../svg/BurgerIcon";
 import { ReactComponent as LogoWhite } from "../../assets/logoWhite.svg";
+import Button from "../common/Button";
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -21,10 +22,9 @@ const Header = () => {
         <Link to="/" className="flex">
           <LogoWhite alt="logo" className="w-[60px] md:w-[100px]" />
         </Link>
-        {user.email 
-          ? <p className="flex lg:hidden ">Hello {user.email}</p>
-          : null
-        }
+        {user.email ? (
+          <p className="flex lg:hidden ">Hello {user.email}</p>
+        ) : null}
         <MainNavigation className="hidden lg:flex" />
         <button
           aria-label="Open the menu"
@@ -39,24 +39,21 @@ const Header = () => {
             aria-hidden={"true"}
           />
         </button>
-        {user.email 
-          ? (
-            <p className="hidden lg:flex ">Hello {user.email}</p>
-          ) : (
-            <div className="hidden lg:flex gap-x-4">
-              <Link
-                to={"/login"}
-                className="rounded-full bg-blue-800 border-black px-5 py-2"
-              >
-                Login
-              </Link>
-              <Link
-                to={"/register"}
-                className="rounded-full border-2 border-orange-500 bg-orange-400 px-5 py-2"
-              >
-                Register
-              </Link>
-            </div>
+        {user.email ? (
+          <p className="hidden lg:flex ">Hello {user.email}</p>
+        ) : (
+          <div className="hidden lg:flex gap-x-4">
+            <Button
+              label={"Login"}
+              nav={"/login"}
+              className={"bg-dark-green border-darker-green"}
+            />
+            <Button
+              label={"Register"}
+              nav={"/register"}
+              className={"bg-orange-500 border-orange-600"}
+            />
+          </div>
         )}
       </div>
       <SideNavigation openMenu={openMenu} setOpenMenu={setOpenMenu} />
