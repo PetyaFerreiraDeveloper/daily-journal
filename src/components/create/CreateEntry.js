@@ -36,8 +36,6 @@ const CreateEntry = () => {
     }));
   };
 
-  console.log(newEntry);
-
   const isFormNotValid = !Object.values(newEntry).some((x) => x === "");
   return (
     <form

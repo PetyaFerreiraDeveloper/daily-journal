@@ -14,4 +14,6 @@ export const create = (journalEntry) => request.post(baseUrl, journalEntry);
 
 export const edit = (entryId, journalEntry) => request.put(`${baseUrl}/${entryId}`, journalEntry);
 
+export const del = (entryId) => request.del(`${baseUrl}/${entryId}`);
+
 

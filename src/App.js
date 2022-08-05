@@ -14,6 +14,7 @@ import About from "./components/About";
 import JournalList from "./components/myJournal/JournalList";
 import CreateEntry from "./components/create/CreateEntry";
 import Details from "./components/Details";
+import Delete from "./components/Delete";
 import EditEntry from "./components/edit/EditEntry";
 import NotFound from "./components/NotFound";
 import BlogList from "./components/blog/BlogList";
@@ -59,6 +60,7 @@ function App() {
 
 
             <Route path="/create" element={<Layout><CreateEntry /></Layout>}/>
+            <Route path="/delete/:journalEntryId" element={<Layout><Delete /></Layout>}/>
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

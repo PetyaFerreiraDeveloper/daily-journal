@@ -1,6 +1,6 @@
 //TODO add to Favorites functionality
 import React, { useState, useContext } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import * as journalService from '../../services/journalService';
 import {JournalContext} from '../../contexts/JournalContext';
