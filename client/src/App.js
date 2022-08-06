@@ -13,6 +13,7 @@ import Register from "./components/Register";
 import About from "./components/About";
 import MyJournal from "./components/myJournal/MyJournal";
 import CreateEntry from "./components/create/CreateEntry";
+import Create from "./components/create/Create";
 import Details from "./components/Details";
 import Delete from "./components/Delete";
 import EditEntry from "./components/edit/EditEntry";
@@ -60,6 +61,8 @@ function App() {
 
 
             <Route path="/create" element={<Layout><CreateEntry /></Layout>}/>
+            {/* <Route path="/create" element={<Layout><Create /></Layout>}/> */}
+
             <Route path="/delete/:journalEntryId" element={<Layout><Delete /></Layout>}/>
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />

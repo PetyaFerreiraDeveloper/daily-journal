@@ -6,7 +6,7 @@ import { JournalContext } from "../../contexts/JournalContext";
 import * as journalService from "../../services/journalService";
 
 const CreateEntry = () => {
-  const { addEntry} = useContext(JournalContext);
+  const { addEntry } = useContext(JournalContext);
   // const [errors, setErrors] = useState({});
 
   const [newEntry, setNewEntry] = useState({
@@ -14,7 +14,7 @@ const CreateEntry = () => {
     category: "",
     journalEntry: "",
     blog: false,
-    authorName: ''
+    authorName: "",
   });
 
   const navigate = useNavigate();
@@ -42,88 +42,91 @@ const CreateEntry = () => {
 
   // const isFormNotValid = !Object.values(newEntry).some((x) => x === "");
   return (
-    <form
-      onSubmit={createHandler}
-      id="register"
-      className="flex flex-col justify-center border-2 m-auto gap-y-6 p-6 bg-white"
-    >
-      <div className="flex flex-col gap-y-5 ">
-        <h2 className="text-center">Create</h2>
+    <div className="">
+      <section
+        className={`-mt-[80px] md:-mt-[116px] h-20 md:h-[130px] -mx-[32px] lg:-mx-[96px] 2xl:-mx-[128px] px-8 md:px-16 2xl:px-32 justify-center items-center xs:pb-10 pb-20 relative bg-heroGreen`}
+      >
+      </section>
+      <div className="md:-mt-32">
+      <form
+        onSubmit={createHandler}
+        id="register"
+        className="flex flex-col md:h-[900px] justify-center border-2 m-auto gap-y-6 py-20 px-6 bg-white"
+      >
+        <div className="flex flex-col gap-y-2 ">
+          <div className="flex gap-x-3 border-b-2">
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Entry Title..."
+              className=""
+              onChange={onChange}
+              value={newEntry.title}
+            />
+          </div>
 
-        <div className="flex gap-x-3 justify-between">
-          <label htmlFor="category">Category</label>
-          <input
-            type="text"
-            id="category"
-            name="category"
-            placeholder="Fun"
-            className="border-2"
-            onChange={onChange}
-            value={newEntry.category}
-          />
-        </div>
-
-        <div className="flex gap-x-3 justify-between">
-          <label htmlFor="title">Entry Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            placeholder="Entry Title"
-            className="border-2"
-            onChange={onChange}
-            value={newEntry.title}
-          />
-        </div>
-
-        <div className="flex gap-x-3 justify-between">
-          <label htmlFor="journalEntry">Todays Entry:</label>
-
-          <textarea
-            name="journalEntry"
-            id="journalEntry"
-            placeholder="Start your entry today"
-            className="border-2"
-            onChange={onChange}
-            value={newEntry.journalEntry}
-          ></textarea>
-        </div>
-
-        <div>
-          <label htmlFor="blog">Share this record on the Blog</label>
-          <input
-            type="checkbox"
-            name="blog"
-            id="blog"
-            checked={newEntry.blog}
-            onChange={onChange}
-          />
-        </div>
-        {newEntry.blog
-          ? <div className="flex gap-x-3 justify-between">
-              <label htmlFor="authorName">What author name do you want to post your blog with?</label>
+          <div className="flex gap-x-3 border-b-2">
+            <label htmlFor="category">Category:</label>
+            <input
+              type="text"
+              id="category"
+              name="category"
+              placeholder="Fun"
+              className=""
+              onChange={onChange}
+              value={newEntry.category}
+            />
+          </div>
+          <div className="flex gap-x-3 border-b-2">
+            <label htmlFor="blog">Share this record on the Blog:</label>
+            <input
+              type="checkbox"
+              name="blog"
+              id="blog"
+              className="w-5"
+              checked={newEntry.blog}
+              onChange={onChange}
+            />
+          </div>
+          {newEntry.blog ? (
+            <div className="flex gap-x-3 border-b-2">
+              <label htmlFor="authorName">Author Name: </label>
               <input
                 type="text"
                 id="authorName"
                 name="authorName"
-                placeholder="your name"
-                className="border-2"
+                placeholder="Name..."
+                className="max-w-[100px]"
                 onChange={onChange}
                 value={newEntry.authorName}
               />
             </div>
-            : null
-        }
-        
+          ) : null}
+          <div className="w-full">
+            <textarea
+              name="journalEntry"
+              id="journalEntry"
+              placeholder="Start your entry today"
+              rows="9"
+              className="border-2 w-full"
+              onChange={onChange}
+              value={newEntry.journalEntry}
+            ></textarea>
+          </div>
 
-        <input
-          className={`border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center cursor-pointer`}
-          type="submit"
-          value="Create"
-          // disabled={!isFormNotValid}
-        />
+          <input
+            className={`border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center cursor-pointer`}
+            type="submit"
+            value="Create"
+            // disabled={!isFormNotValid}
+          />
+        </div>
+      </form>
       </div>
-    </form>
+   
+    </div>
   );
 };
 
