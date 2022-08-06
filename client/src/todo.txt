@@ -22,6 +22,8 @@ FUNCTIONALITY
 [] - forms validation
 [] - jest tests
 [x] - on create of a blog direct me to the blog page otherwise to journal page
+[x] - deploy on Vercel
+[] - check how deployment works with the service
 
 
 CONTENT

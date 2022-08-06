@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import * as journalService from "../../services/journalService";
-import Button from "../common/Button";
 import NoEntries from "../common/NoEntries";
 import JournalEntry from "./JournalEntry";
 
