@@ -9,14 +9,16 @@ const JournalEntry = (props) => {
   const { journalEntry } = props;
 
   let author = journalEntry.authorName || "anonymous";
-  let blogBackground = "";
+  let listingBackground = "";
   if (journalEntry.blog) {
-    blogBackground = "bg-gray-500";
+    listingBackground = "bg-gray-500";
+  } else {
+    listingBackground = 'bg-heroGreen'
   }
 
   return (
     <article
-      className={`static flex flex-col justify-center gap-y-4 p-4 w-[350px] h-[200px] border-2 border-gray-600 rounded-2xl shadow-[0_2px_4px_1px_rgba(190,193,202,0.5)] drop-shadow-xl text-white ${blogBackground}`}
+      className={`static flex flex-col justify-center gap-y-4 p-4 w-[350px] h-[200px] border-2 border-gray-600 rounded-2xl shadow-[0_2px_4px_1px_rgba(190,193,202,0.5)] drop-shadow-xl text-white ${listingBackground}`}
     >
       {journalEntry.blog ? <BlogLabel />: null}
       
