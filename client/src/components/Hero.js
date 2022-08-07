@@ -1,4 +1,3 @@
-
 import Button from "./common/Button";
 import ArrowDownIcon from "../components/svg/ArrowDownIcon";
 
@@ -11,7 +10,7 @@ const Hero = (props) => {
     imageAlt,
     navigateTo,
     className,
-    first
+    first,
   } = props;
 
   const scrollDown = () => {
@@ -40,9 +39,8 @@ const Hero = (props) => {
             nav={navigateTo}
             className={"bg-orange-400 border-orange-500"}
           />
-          <div onClick={scrollDown}>
-
-          <ArrowDownIcon  />
+          <div onClick={scrollDown} className="p-5 cursor-pointer">
+            <ArrowDownIcon />
           </div>
         </div>
       </div>

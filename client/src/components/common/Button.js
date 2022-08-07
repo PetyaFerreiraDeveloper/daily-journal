@@ -6,7 +6,7 @@ const Button = (props) => {
   return (
     <Link
       to={nav}
-      className={`rounded-full border-2 px-8 py-2 text-white ${className}`}
+      className={`rounded-full border-2 px-8 py-2 text-white cursor-pointer ${className}`}
     >
       {label}
     </Link>

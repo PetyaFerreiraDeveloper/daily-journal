@@ -117,7 +117,7 @@ const CreateEntry = () => {
           </div>
 
           <input
-            className={`border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center cursor-pointer`}
+            className={`border-2 bg-dark-green border-darker-green text-white rounded-full  px-8 py-2 place-self-center cursor-pointer`}
             type="submit"
             value="Create"
             // disabled={!isFormNotValid}
