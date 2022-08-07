@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 
 import Hero from '../Hero';
@@ -8,6 +8,8 @@ import hero from '../../assets/hero.jpg';
 
 
 const MyJournal = () => {
+  const journal = useRef(null);
+
   return (
     <div>
         <Hero 
@@ -20,8 +22,9 @@ const MyJournal = () => {
             imageUrl={hero}
             className={"bg-heroGreen text-white"}
             imageAlt={"laptop, computer and notebook with a pen on top of a desk"}
+            first={journal}
         />
-        <JournalList />
+        <JournalList journal={journal}/>
     </div>
   )
 }

@@ -5,7 +5,7 @@ import * as journalService from "../../services/journalService";
 import NoEntries from "../common/NoEntries";
 import JournalEntry from "./JournalEntry";
 
-const JournalList = () => {
+const JournalList = ({journal}) => {
   const [entries, setEntries] = useState([]);
   const { user } = useContext(AuthContext);
 
@@ -16,7 +16,7 @@ const JournalList = () => {
   }, [user._id]);
 
   return (
-    <section className="flex flex-col items-center gap-y-10 py-20">
+    <section ref={journal} className="flex flex-col items-center gap-y-10 py-20">
       {entries.length > 0
         ? <h2 className="text-center">See all your journal entries in one place</h2>
         : <NoEntries />

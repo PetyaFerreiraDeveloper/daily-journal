@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import Hero from './Hero';
 import ArticleImage from './common/ArticleImage';
@@ -7,6 +7,8 @@ import hero from '../assets/hero.jpg';
 import safe from '../assets/safe.jpg'
 
 const About = () => {
+  const aboutSection = useRef(null);
+
   return (
     <div>
         <Hero 
@@ -19,6 +21,8 @@ const About = () => {
           imageUrl={hero}
           className={"bg-heroGreen text-white"}
           imageAlt={"laptop, computer and notebook with a pen on top of a desk"}
+          first={aboutSection}
+
         />
         <ArticleImage
           articleTitle={"We are all about providing safe space for you"}
@@ -31,6 +35,8 @@ const About = () => {
           navigateTo={'/register'}
           buttonColor={'bg-dark-green border-darker-green md:self-start'}
           className="md:flex-row"
+          aboutSection={aboutSection}
+
         />
     </div>
   )

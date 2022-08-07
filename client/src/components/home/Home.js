@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useRef} from 'react';
 
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -13,6 +13,7 @@ import safe from '../../assets/safe.jpg';
 const Home = () => {
   const { user } = useContext(AuthContext);
 
+  const homeSection = useRef(null);
 
   return (
     <div>
@@ -26,6 +27,7 @@ const Home = () => {
           imageUrl={hero}
           className={"bg-heroGreen text-white"}
           imageAlt={"laptop, computer and notebook with a pen on top of a desk"}
+          first={homeSection}
         />
         <Article
           articleTitle={"Why are you writing?"}
@@ -35,6 +37,7 @@ const Home = () => {
           label={"Get Started Now"}
           navigateTo={user.email ? '/create' : '/register'}
           buttonColor={"bg-dark-green border-darker-green"}
+          homeSection={homeSection}
         />
         <ArticleImage
           articleTitle={"Your information and privacy are safe with us"}
@@ -48,6 +51,7 @@ const Home = () => {
           buttonColor={'bg-orange-500 border-orange-600'}
           className="md:flex-row"
         />
+        {/* <div ref={first}></div> */}
         <ArticleImage
           articleTitle={"Enjoy the freedom and write from anywhere, whenever you feel like it"}
           description={

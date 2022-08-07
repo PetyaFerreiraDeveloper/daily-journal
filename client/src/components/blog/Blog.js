@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useRef} from 'react';
 
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -8,6 +8,8 @@ import hero from '../../assets/hero.jpg'
 
 const Blog = () => {
   const { user } = useContext(AuthContext);
+  const blogSection = useRef(null);
+
 
   return (
     <div>
@@ -21,8 +23,10 @@ const Blog = () => {
           imageUrl={hero}
           className={"bg-heroGreen text-white"}
           imageAlt={"laptop, computer and notebook with a pen on top of a desk"}
+          first={blogSection}
+
         />
-        <BlogList />
+        <BlogList blogSection={blogSection}/>
 
     </div>
   )

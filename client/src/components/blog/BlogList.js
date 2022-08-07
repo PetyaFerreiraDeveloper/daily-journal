@@ -5,7 +5,7 @@ import * as journalService from "../../services/journalService";
 import JournalEntry from "../myJournal/JournalEntry";
 import NoEntries from "../common/NoEntries";
 
-const BlogList = () => {
+const BlogList = ({blogSection}) => {
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const BlogList = () => {
   }, []);
 
   return (
-    <section className="flex flex-col items-center gap-y-10 py-20">
+    <section ref={blogSection} className="flex flex-col items-center gap-y-10 py-20">
       {entries.length > 0
         ? <h2>Latest blog entries</h2>
         : <NoEntries />

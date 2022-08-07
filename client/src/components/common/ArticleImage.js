@@ -2,10 +2,10 @@ import React from "react";
 import Button from "./Button";
 
 const ArticleImage = (props) => {
-  const { articleTitle, description, label, buttonColor, navigateTo, imageUrl, imageAlt, className } =
+  const { articleTitle, description, label, buttonColor, navigateTo, imageUrl, imageAlt, className, aboutSection } =
     props;
   return (
-    <article
+    <article ref={aboutSection}
       className={`flex flex-col py-24  justify-between items-center gap-y-16 md:gap-x-10  md:place-items-center whitespace-pre-line ${className}`}
     >
       <div className="flex flex-col justify-center items-center gap-y-10 md:w-1/2">
