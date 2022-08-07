@@ -7,6 +7,8 @@ import  {AuthContext} from "../contexts/AuthContext"
 import * as journalService from "../services/journalService";
 import { dateFormatter } from "../utils/dateFormatter";
 
+import Button from '../components/common/Button';
+
 const Details = () => {
   const { entries } = useContext(JournalContext);
   const { user } = useContext(AuthContext);
@@ -32,45 +34,50 @@ const Details = () => {
   };
 
   return (
-    <section className="border-2 flex flex-col gap-y-3 p-5">
+    <div>
+       <section
+        className={`-mt-[80px] md:-mt-[116px] h-20 md:h-[130px] -mx-[32px] lg:-mx-[96px] 2xl:-mx-[128px] px-8 md:px-16 2xl:px-32 justify-center items-center xs:pb-10 pb-20 relative bg-heroGreen`}
+      >
+      </section>
+    <section className="border-2 flex flex-col gap-y-3 p-5 bg-white">
       <article className="flex flex-col gap-y-3">
         <h2>Journal Entry Details</h2>
-        <p>{`Category: ${entry.category}`}</p>
-        <p>{`Title: ${entry.title}`}</p>
+        <p className="break-words">{`Category: ${entry.category}`}</p>
+        <p className="break-words">{`Title: ${entry.title}`}</p>
         <p>{`Created on: ${dateFormatter(entry._createdOn)}`}</p>
         {entry._editedOn ? (
           <p>{`Edited on: ${dateFormatter(entry._editedOn)}`}</p>
         ) : null}
 
-        <p>{`Journal Entry: ${entry.journalEntry}`}</p>
+        <p className="break-words">{`Journal Entry: ${entry.journalEntry}`}</p>
       </article>
-      <div className="flex justify-between items-center px-5">
+      <div className="flex flex-col gap-y-3 md:flex-row md:justify-between md:items-center md:px-5 gap-x-1">
         <button
-          className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
+          className="rounded-full border-2 border-darker-green bg-dark-green px-8 py-2 self-start text-white"
           onClick={backClickHandler}
         >
           Back
         </button>
         {
           (user._id === journalEntry._ownerId)
-            ? <div className="flex gap-x-3">
-                <Link
-                  className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
-                  to={`/entry/${journalEntry._id}/edit`}
-                >
-                  Edit
-                </Link>
-                <Link
-                  className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
-                  to={`/delete/${journalEntry._id}`}
-                >
-                  Delete
-                </Link>
+            ? <div className="flex self-end gap-x-1 md:gap-x-3">
+              <Button 
+                nav={`/entry/${journalEntry._id}/edit`}
+                label={'Edit'}
+                className="bg-orange-400 border-orange-500"
+              />
+              <Button 
+                nav={`/delete/${journalEntry._id}`}
+                label={'Delete'}
+                className="bg-orange-400 border-orange-500"
+              />
               </div>
             : null
         }
       </div>
     </section>
+    </div>
+
   );
 };
 

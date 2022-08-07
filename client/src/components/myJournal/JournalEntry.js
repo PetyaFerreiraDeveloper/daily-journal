@@ -21,8 +21,8 @@ const JournalEntry = (props) => {
       {journalEntry.blog ? <BlogLabel />: null}
       
         <div className="flex justify-between">
-          <p>{dateFormatter(journalEntry._createdOn)}</p>
-          {journalEntry.blog ? <p>{`author: ${capitalizeFirstLetter(author)}`}</p> : null}
+          <p className="w-32">{dateFormatter(journalEntry._createdOn)}</p>
+          {journalEntry.blog ? <p className="truncate w-48">{`author: ${capitalizeFirstLetter(author)}`}</p> : null}
         </div>
         <h3 className="text-center text-ellipsis overflow-hidden">
           {capitalizeFirstLetter(journalEntry.title)}

@@ -61,7 +61,7 @@ const CreateEntry = () => {
               id="title"
               name="title"
               placeholder="Entry Title..."
-              className=""
+              className="outline-hidden focus:outline-none w-full"
               onChange={onChange}
               value={newEntry.title}
             />
@@ -74,7 +74,7 @@ const CreateEntry = () => {
               id="category"
               name="category"
               placeholder="Fun"
-              className=""
+              className="outline-hidden focus:outline-none w-full"
               onChange={onChange}
               value={newEntry.category}
             />
@@ -98,7 +98,7 @@ const CreateEntry = () => {
                 id="authorName"
                 name="authorName"
                 placeholder="Name..."
-                className="max-w-[100px]"
+                className="max-w-[135px] focus:outline-none"
                 onChange={onChange}
                 value={newEntry.authorName}
               />
@@ -110,7 +110,7 @@ const CreateEntry = () => {
               id="journalEntry"
               placeholder="Start your entry today"
               rows="9"
-              className="border-2 w-full"
+              className="border-2 w-full focus:outline-none"
               onChange={onChange}
               value={newEntry.journalEntry}
             ></textarea>

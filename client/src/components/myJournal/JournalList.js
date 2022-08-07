@@ -18,7 +18,7 @@ const JournalList = () => {
   return (
     <section className="flex flex-col items-center gap-y-10 py-20">
       {entries.length > 0
-        ? <h2>See all your journal entries in one place</h2>
+        ? <h2 className="text-center">See all your journal entries in one place</h2>
         : <NoEntries />
       }
       
