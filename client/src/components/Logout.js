@@ -24,7 +24,7 @@ const Logout = () => {
       <section
         className={`-mt-[80px] md:-mt-[116px] h-20 md:h-[130px] -mx-[32px] lg:-mx-[96px] 2xl:-mx-[128px] px-8 md:px-16 2xl:px-32 justify-center items-center xs:pb-10 pb-20 relative bg-heroGreen`}
       ></section>
-      <div className="flex flex-col border-2 m-auto gap-y-10 px-6 py-20 bg-white w-[320px]">
+      <div className="flex flex-col border-2 m-auto gap-y-10 px-6 py-20 bg-white w-[320px] rounded-2xl">
         <p>Are you sure you want to logout?</p>
         <div className="flex gap-x-3 justify-end">
           <button

@@ -1,13 +1,13 @@
 // TODO: show logout button next to user email
 
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/AuthContext";
 
 import { privatePages , publicPages } from "../../constants/pages";
 import CloseIcon from "../svg/CloseIcon";
 import PageLink from '../common/PageLink';
+import Button from '../common/Button';
 
 const BurgerMenu = ({ className }) => {
   const { user } = useContext(AuthContext);
@@ -24,18 +24,8 @@ const BurgerMenu = ({ className }) => {
       {user.email
         ? <p>{user.email}</p>
         : <div className="flex justify-between gap-x-4">
-          <Link
-            to={"/login"}
-            className="rounded-full border-2 bg-blue-500 border-black xxs:px-5 px-8 py-2"
-          >
-            Login
-          </Link>
-          <Link
-            to={"/register"}
-            className="rounded-full border-2 bg-yellow-500 border-black xxs:px-5 px-8 py-2"
-          >
-            Register
-          </Link>
+          <Button nav={"/login"} label={'Login'} className={'bg-dark-green border-darker-green'}/>
+          <Button nav={"/register"} label={'Register'} className={'bg-orange-400 border-orange-500'}/>
           </div>
         }
 

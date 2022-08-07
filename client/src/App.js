@@ -35,34 +35,29 @@ function App() {
   return (
     <AuthProvider>
       <JournalContext.Provider value={{ entries, addEntry }}>
-        <div>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Layout>
-                  <Home />
-                </Layout>
-              }
-            />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/logout" element={<Layout> <Logout /> </Layout>} />
-            <Route path="/about"element={<Layout><About /></Layout>}/>
+        <Layout>
+          <div>
+            <Routes>
+              <Route path="/" element={<Home />}/>
+              <Route path="/login" element={<Login /> } />
+              <Route path="/register" element={<Register />} />
+              <Route path="/logout" element={<Logout /> } />
+              <Route path="/about"element={<About />}/>
 
-            <Route path="/my-journal" element={ <Layout><MyJournal /> </Layout>}/>
-            <Route path="/entry/:journalEntryId/edit" element={ <Layout><EditEntry /> </Layout>}/>
+              <Route path="/my-journal" element={ <MyJournal /> }/>
+              <Route path="/entry/:journalEntryId/edit" element={<EditEntry /> }/>
 
-            <Route path="/blog" element={<Layout><Blog /></Layout>}/>
-            <Route path="/entry/:journalEntryId" element={ <Layout><Details /> </Layout>}/>
+              <Route path="/blog" element={<Blog />}/>
+              <Route path="/entry/:journalEntryId" element={ <Details />}/>
 
-            <Route path="/create" element={<Layout><CreateEntry /></Layout>}/>
+              <Route path="/create" element={<CreateEntry />}/>
 
-            <Route path="/delete/:journalEntryId" element={<Layout><Delete /></Layout>}/>
-            <Route path="/404" element={<NotFound />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
+              <Route path="/delete/:journalEntryId" element={<Delete />}/>
+              <Route path="/404" element={<NotFound />} />
+              <Route path="*" element={<NotFound />} /> 
+            </Routes>
+          </div>
+        </Layout>
       </JournalContext.Provider>
     </AuthProvider>
   );

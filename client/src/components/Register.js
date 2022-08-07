@@ -32,10 +32,13 @@ const Register = () => {
   };
   
   return (
-    <section id="register-page" className=" bg-gray-300 h-screen flex">
+    <section className="flex flex-col h-screen">
+      <section
+        className={`-mt-[80px] md:-mt-[116px] h-20 md:h-[130px] -mx-[32px] lg:-mx-[96px] 2xl:-mx-[128px] px-8 md:px-16 2xl:px-32 justify-center items-center xs:pb-10 pb-20 relative bg-heroGreen`}
+      ></section>
+
       <form
-        id="register"
-        className="flex flex-col justify-center border-2 m-auto gap-y-6 p-6 bg-white"
+        className="flex flex-col justify-center border-2 rounded-2xl m-auto gap-y-6 p-6 bg-white"
         onSubmit={submitHandler}
       >
         <div className="flex flex-col gap-y-5 ">
@@ -47,12 +50,12 @@ const Register = () => {
               id="email"
               name="email"
               placeholder="maria@email.com"
-              className="border-2"
+              className="border-2 outline-hidden focus:outline-none"
             />
           </div>
           <div className="flex gap-x-3 justify-between">
             <label htmlFor="password">Password:</label>
-            <input className="border-2" type="password" name="password" id="password" />
+            <input className="border-2 outline-hidden focus:outline-none" type="password" name="password" id="password" />
           </div>
           <div className="flex gap-x-3 justify-between">
             <label htmlFor="confirmPass">Confirm Password:</label>
@@ -60,14 +63,14 @@ const Register = () => {
               type="password"
               name="confirmPass"
               id="confirmPass"
-              className="border-2"
+              className="border-2 outline-hidden focus:outline-none"
             />
           </div>
           {error
             ? <p className="text-red-400">Passwords don't match</p>
             : null
           }
-          <input className="border-2 border-gray-300 rounded-lg px-3 py-1 place-self-center cursor-pointer" type="submit" value="Register" />
+          <input className="border-2 bg-dark-green border-darker-green text-white rounded-full px-8 py-2 place-self-center cursor-pointer" type="submit" value="Register" />
           <p className="self-end">
             <span>
               If you already have profile{" "}
