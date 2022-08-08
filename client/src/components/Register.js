@@ -42,7 +42,7 @@ const Register = () => {
         onSubmit={submitHandler}
       >
         <div className="flex flex-col gap-y-5 ">
-          <h2 className="text-center">Register</h2>
+          <h1 className="text-center">Register</h1>
           <div className="flex gap-x-3 justify-between">
             <label htmlFor="email">Email:</label>
             <input

@@ -41,7 +41,7 @@ const Details = () => {
       </section>
     <section className="border-2 flex flex-col gap-y-3 p-5 bg-white">
       <article className="flex flex-col gap-y-3">
-        <h2>Journal Entry Details</h2>
+        <h1>Journal Entry Details</h1>
         <p className="break-words">{`Category: ${entry.category}`}</p>
         <p className="break-words">{`Title: ${entry.title}`}</p>
         <p>{`Created on: ${dateFormatter(entry._createdOn)}`}</p>

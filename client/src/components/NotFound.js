@@ -8,7 +8,7 @@ const NotFound = () => {
   };
   return (
     <div className="flex flex-col gap-y-10 justify-center items-center">
-      <div>404 Page not found</div>
+      <h1>404 Page not found</h1>
       <button
         className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
         onClick={backClickHandler}

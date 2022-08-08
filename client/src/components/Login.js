@@ -44,7 +44,7 @@ const Login = () => {
         className="flex flex-col justify-center border-2 rounded-2xl m-auto gap-y-6 p-6 bg-white"
       >
         <div className="flex flex-col gap-y-5 ">
-          <h2 className="text-center">Login</h2>
+          <h1 className="text-center">Login</h1>
           <div className="flex gap-x-3 justify-between">
             <label htmlFor="email">Email:</label>
             <input

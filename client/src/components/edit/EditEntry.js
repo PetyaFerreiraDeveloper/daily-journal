@@ -50,7 +50,7 @@ const EditEntry = () => {
         className="flex flex-col justify-center border-2 m-auto gap-y-6 p-6 bg-white"
       >
         <div className="flex flex-col gap-y-5 ">
-          <h2 className="text-center">Edit</h2>
+          <h1 className="text-center">Edit</h1>
           <div className="flex gap-x-3 justify-between">
             <label htmlFor="title">Entry Title</label>
             <input
