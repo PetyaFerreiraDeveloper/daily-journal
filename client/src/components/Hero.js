@@ -39,7 +39,7 @@ const Hero = (props) => {
             nav={navigateTo}
             className={"bg-orange-400 border-orange-500"}
           />
-          <div onClick={scrollDown} className="p-5 cursor-pointer">
+          <div onClick={scrollDown} className="p-5 self-center cursor-pointer">
             <ArrowDownIcon />
           </div>
         </div>
