@@ -12,6 +12,8 @@ const EditEntry = () => {
   const journalEntry = entries.find((entry) => entry._id === journalEntryId);
 
   const [currentEntry, setCurrentEntry] = useState(journalEntry);
+  const [formError, setFormError] = useState("");
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     journalService.getOne(journalEntryId).then((entryData) => {
@@ -25,6 +27,19 @@ const EditEntry = () => {
 
   const editEntryHandler = (e) => {
     e.preventDefault();
+    if(currentEntry.title === '' || currentEntry.journalEntry === '') {
+      setFormError(true);
+      return;
+    };
+    
+    if (currentEntry.title !== '' && currentEntry.journalEntry !== '') {
+      setFormError(false);
+    };
+    
+    if(isFormNotValid) {
+      return;
+    }
+
     journalService.edit(journalEntryId, currentEntry).then((result) => {
       setCurrentEntry(result);
     });
@@ -34,9 +49,22 @@ const EditEntry = () => {
   const onChange = (e) => {
     setCurrentEntry((state) => ({
       ...state,
-      [e.target.name]: e.target.type === "checkbox" ? e.target.checked : e.target.value,
+      [e.target.name]:
+        e.target.type === "checkbox" ? e.target.checked : e.target.value,
+    }));
+    if(!errors) {
+      setFormError(false);
+    }
+  };
+
+  const minLength = (e, limit) => {
+    setErrors((state) => ({
+      ...state,
+      [e.target.name]: currentEntry[e.target.name].length < limit,
     }));
   };
+
+  const isFormNotValid = Object.values(errors).some((x) => x);
 
   return (
     <div>
@@ -60,8 +88,14 @@ const EditEntry = () => {
               className="outline-hidden focus:outline-none w-full"
               onChange={onChange}
               value={currentEntry.title}
+              onBlur={(e) => minLength(e, 3)}
             />
           </div>
+          {errors.title && (
+              <p className="text-red-500">
+                Title should be at least three characters long
+              </p>
+            )}
           <div className="flex gap-x-3 border-b-2">
             <label htmlFor="category">Category:</label>
             <input
@@ -75,33 +109,32 @@ const EditEntry = () => {
             />
           </div>
           <div className="flex gap-x-3 border-b-2">
-              <label htmlFor="blog">Share this record on the Blog:</label>
+            <label htmlFor="blog">Share this record on the Blog:</label>
+            <input
+              type="checkbox"
+              name="blog"
+              id="blog"
+              className="w-5"
+              checked={currentEntry.blog}
+              onChange={onChange}
+            />
+          </div>
+          {currentEntry.blog ? (
+            <div className="flex gap-x-3 border-b-2">
+              <label htmlFor="authorName">Author Name: </label>
               <input
-                type="checkbox"
-                name="blog"
-                id="blog"
-                className="w-5"
-                checked={currentEntry.blog}
+                type="text"
+                id="authorName"
+                name="authorName"
+                placeholder="Name..."
+                className="max-w-[135px] focus:outline-none"
                 onChange={onChange}
+                value={currentEntry.authorName}
               />
             </div>
-            {currentEntry.blog ? (
-              <div className="flex gap-x-3 border-b-2">
-                <label htmlFor="authorName">Author Name: </label>
-                <input
-                  type="text"
-                  id="authorName"
-                  name="authorName"
-                  placeholder="Name..."
-                  className="max-w-[135px] focus:outline-none"
-                  onChange={onChange}
-                  value={currentEntry.authorName}
-                />
-              </div>
-            ) : null}
+          ) : null}
 
           <div className="w-full">
-            
             <textarea
               name="journalEntry"
               id="journalEntry"
@@ -109,8 +142,20 @@ const EditEntry = () => {
               className="outline-hidden focus:outline-none w-full"
               onChange={onChange}
               value={currentEntry.journalEntry}
+              onBlur={(e) => minLength(e, 3)}
             ></textarea>
           </div>
+          {errors.journalEntry && (
+              <p className="text-red-500">
+                Your journal entry should be at least three characters long
+              </p>
+            )}
+            {(formError || isFormNotValid ) ? (
+              <p className="text-red-500">
+                Please fill out both entry title and entry text to create a
+                record
+              </p>
+            ) : null }
           <div className="flex gap-x-3">
             <button
               className="rounded-full border-2 border-orange-500 bg-orange-400 px-8 py-2"
