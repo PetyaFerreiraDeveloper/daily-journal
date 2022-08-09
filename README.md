@@ -10,8 +10,7 @@ An app allowing user to record daily in an online journal
 
 2) Open the server folder of the project in the terminal and type:
 
-<<<<<<< HEAD
-node server.js
+`node server.js`
 
 3) You can login with a predifined user: email: peter@abv.bg password: 123456
 
