@@ -34,7 +34,7 @@ const EditEntry = () => {
   const onChange = (e) => {
     setCurrentEntry((state) => ({
       ...state,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.type === "checkbox" ? e.target.checked : e.target.value,
     }));
   };
 
@@ -46,13 +46,12 @@ const EditEntry = () => {
 
       <form
         onSubmit={editEntryHandler}
-        id="register"
         className="flex flex-col justify-center border-2 m-auto gap-y-6 p-6 bg-white"
       >
         <div className="flex flex-col gap-y-5 ">
           <h1 className="text-center">Edit</h1>
-          <div className="flex gap-x-3 justify-between">
-            <label htmlFor="title">Entry Title</label>
+          <div className="flex gap-x-3 border-b-2">
+            <label htmlFor="title">Title:</label>
             <input
               type="text"
               id="title"
@@ -63,8 +62,8 @@ const EditEntry = () => {
               value={currentEntry.title}
             />
           </div>
-          <div className="flex gap-x-3 justify-between">
-            <label htmlFor="category">Category</label>
+          <div className="flex gap-x-3 border-b-2">
+            <label htmlFor="category">Category:</label>
             <input
               type="text"
               id="category"
@@ -75,12 +74,34 @@ const EditEntry = () => {
               value={currentEntry.category}
             />
           </div>
+          <div className="flex gap-x-3 border-b-2">
+              <label htmlFor="blog">Share this record on the Blog:</label>
+              <input
+                type="checkbox"
+                name="blog"
+                id="blog"
+                className="w-5"
+                checked={currentEntry.blog}
+                onChange={onChange}
+              />
+            </div>
+            {currentEntry.blog ? (
+              <div className="flex gap-x-3 border-b-2">
+                <label htmlFor="authorName">Author Name: </label>
+                <input
+                  type="text"
+                  id="authorName"
+                  name="authorName"
+                  placeholder="Name..."
+                  className="max-w-[135px] focus:outline-none"
+                  onChange={onChange}
+                  value={currentEntry.authorName}
+                />
+              </div>
+            ) : null}
 
-         
-
-          <div className="flex gap-x-3 justify-between">
-            <label htmlFor="journalEntry">Todays Entry:</label>
-
+          <div className="w-full">
+            
             <textarea
               name="journalEntry"
               id="journalEntry"
