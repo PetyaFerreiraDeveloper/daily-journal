@@ -13,7 +13,7 @@ import Register from "./components/Register";
 import About from "./components/About";
 import MyJournal from "./components/myJournal/MyJournal";
 import CreateEntry from "./components/create/CreateEntry";
-import Details from "./components/Details";
+import Details from "./components/details/Details";
 import Delete from "./components/Delete";
 import EditEntry from "./components/edit/EditEntry";
 import NotFound from "./components/NotFound";
