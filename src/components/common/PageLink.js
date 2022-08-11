@@ -14,7 +14,8 @@ const PageLink = ({ link }) => {
           backgroundColor: '#006400',
           padding: '11px 32px',
           borderRadius: '9999px',
-          borderColor: '#005000'
+          borderColor: '#005000',
+          color: 'white'
         }
          : null
       }}
