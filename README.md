@@ -18,6 +18,7 @@ Note: The service is initialized with a user, which can be used for immediate te
 
 
 2) To install dependecies type in terminal in the folder of the project
+
 `npm i`
 
 3) To start the project type:
