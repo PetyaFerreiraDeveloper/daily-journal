@@ -5,7 +5,7 @@ import Button from "./Button";
 const NoEntries = () => {
   return (
     <div className="flex flex-col gap-y-10 justify-center items-center">
-      <h2 className="">
+      <h2 className="text-center">
         You don't have any journal entries yet!
       </h2>
       <Button 

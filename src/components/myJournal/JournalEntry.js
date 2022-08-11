@@ -20,7 +20,7 @@ const JournalEntry = (props) => {
     <article
       className={`static flex flex-col justify-center gap-y-4 p-4 w-[350px] h-[200px] border-2 border-gray-600 rounded-2xl shadow-[0_2px_4px_1px_rgba(190,193,202,0.5)] drop-shadow-xl text-white ${listingBackground}`}
     >
-      {journalEntry.blog ? <BlogLabel />: null}
+      {journalEntry.blog ? <BlogLabel label={'blog'}/>: <BlogLabel label={'journal'}/>}
       
         <div className="flex justify-between">
           <p className="w-32">{dateFormatter(journalEntry._createdOn)}</p>
