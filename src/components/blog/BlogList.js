@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from "react";
-
-import * as journalService from "../../services/journalService";
+import React from "react";
 
 import JournalEntry from "../myJournal/JournalEntry";
 import NoEntries from "../common/NoEntries";
 
-const BlogList = ({blogSection}) => {
-  const [entries, setEntries] = useState([]);
-
-  useEffect(() => {
-    journalService.getAllShared().then((result) => {
-      setEntries(result);
-    });
-  }, []);
+const BlogList = ({blogSection, entries}) => {
 
   return (
     <section ref={blogSection} className="flex flex-col items-center gap-y-10 py-20">

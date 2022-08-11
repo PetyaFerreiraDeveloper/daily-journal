@@ -8,6 +8,8 @@ export const getAllByOwner = (ownerId) =>  request.get(`${baseUrl}?where=_ownerI
 
 export const getAllShared = () =>  request.get(`${baseUrl}?where=blog%3Dtrue`);
 
+// export const getFiltered = (filter, text) => request.get(`${baseUrl}?where=${filter}%3D%22${text}%22`);
+
 export const getOne = (entryId) => request.get(`${baseUrl}/${entryId}`);
 
 export const create = (journalEntry) => request.post(baseUrl, journalEntry);
