@@ -46,7 +46,7 @@ function App() {
               <Route path="/about"element={<About />}/>
 
               <Route path="/my-journal" element={ <MyJournal /> }/>
-              <Route path="/entry/:journalEntryId/edit" element={<EditEntry /> }/>
+              <Route path="/entry/:journalEntryId/edit" element={<PrivateRoute><EditEntry /></PrivateRoute> }/>
 
               <Route path="/blog" element={<Blog />}/>
               <Route path="/entry/:journalEntryId" element={ <Details />}/>
