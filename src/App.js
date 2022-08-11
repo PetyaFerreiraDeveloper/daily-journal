@@ -5,6 +5,7 @@ import * as journalService from "./services/journalService";
 import { AuthProvider } from "./contexts/AuthContext";
 import { JournalContext } from "./contexts/JournalContext";
 
+import PrivateRoute from "./components/common/PrivateRoute";
 import Layout from "./layout/Layout";
 import Home from "./components/home/Home";
 import Login from "./components/Login";
@@ -41,7 +42,7 @@ function App() {
               <Route path="/" element={<Home />}/>
               <Route path="/login" element={<Login /> } />
               <Route path="/register" element={<Register />} />
-              <Route path="/logout" element={<Logout /> } />
+              <Route path="/logout" element={<PrivateRoute> <Logout /> </PrivateRoute> } />
               <Route path="/about"element={<About />}/>
 
               <Route path="/my-journal" element={ <MyJournal /> }/>
@@ -50,7 +51,7 @@ function App() {
               <Route path="/blog" element={<Blog />}/>
               <Route path="/entry/:journalEntryId" element={ <Details />}/>
 
-              <Route path="/create" element={<CreateEntry />}/>
+              <Route path="/create" element={<PrivateRoute> <CreateEntry /> </PrivateRoute>}/>
 
               <Route path="/delete/:journalEntryId" element={<Delete />}/>
               <Route path="/404" element={<NotFound />} />
