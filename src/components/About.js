@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
+
 
 import Hero from './Hero';
 import ArticleImage from './common/ArticleImage';
@@ -17,7 +18,7 @@ const About = () => {
             "My Daily Journal is the one place you want to stop by everyday. This is the place where you can be yourself."
           }
           label={"Start your journal"}
-          navigateTo={'/register'}
+          navigateTo={'/create'}
           imageUrl={hero}
           className={"bg-heroGreen text-white"}
           imageAlt={"laptop, computer and notebook with a pen on top of a desk"}
@@ -32,7 +33,7 @@ const About = () => {
           imageUrl={safe}
           imageAlt={"tablet showing username and password"}
           label={"Get Started"}
-          navigateTo={'/register'}
+          navigateTo={'/create'}
           buttonColor={'bg-dark-green border-darker-green md:self-start'}
           className="md:flex-row"
           aboutSection={aboutSection}
