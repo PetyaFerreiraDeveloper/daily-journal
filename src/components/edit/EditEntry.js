@@ -136,6 +136,7 @@ const EditEntry = () => {
 
           <div className="w-full">
             <textarea
+              rows='10'
               name="journalEntry"
               id="journalEntry"
               placeholder="Start your entry today"
@@ -164,7 +165,7 @@ const EditEntry = () => {
               Back
             </button>
             <input
-              className="rounded-full border-2 border-green-800 bg-green-700 text-white px-8 py-2 cursor-pointer"
+              className="rounded-full border-2 border-darker-green bg-dark-green text-white px-8 py-2 cursor-pointer"
               type="submit"
               value="Save"
             />
