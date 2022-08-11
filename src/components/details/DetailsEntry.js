@@ -20,7 +20,7 @@ const DetailsEntry = ({ journalEntry }) => {
     <article
       className={`static flex flex-col justify-center gap-y-4 p-4 w-full border-2 border-gray-600 rounded-2xl shadow-[0_2px_4px_1px_rgba(190,193,202,0.5)] drop-shadow-xl text-white ${listingBackground} ${textColor}`}
     >
-      {journalEntry.blog && <BlogLabel />}
+      {journalEntry.blog ? <BlogLabel label={'blog'}/>: <BlogLabel label={'journal'}/>}
 
       <p className="break-words">{`Category: ${journalEntry.category}`}</p>
       <h3 className="break-words">{`Title: ${journalEntry.title}`}</h3>
