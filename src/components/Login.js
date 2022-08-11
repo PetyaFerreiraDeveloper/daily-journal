@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <section className="h-screen flex flex-col">
+    <section className=" flex flex-col gap-y-10">
       <section
         className={`-mt-[80px] md:-mt-[116px] h-20 md:h-[130px] -mx-[32px] lg:-mx-[96px] 2xl:-mx-[128px] px-8 md:px-16 2xl:px-32 justify-center items-center xs:pb-10 pb-20 relative bg-heroGreen`}
       ></section>
