@@ -2,7 +2,7 @@
 This app allows a user to create a profile on the web site. After registering, the user can create journal or blog entries. The journal entries are only visible to the logged creater of the entry, while the blog entries are available to all users (both logged and not logged).
 The user who has created an entry can also edit and delete it.
 
-For Back end I am using Softuni's practise server.
+For Back end I am using Softuni's practice server.
 
 ## More info about the REST service:
 https://github.com/softuni-practice-server/softuni-practice-server
