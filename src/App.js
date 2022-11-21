@@ -45,7 +45,7 @@ function App() {
               <Route path="/logout" element={<PrivateRoute> <Logout /> </PrivateRoute> } />
               <Route path="/about"element={<About />}/>
 
-              <Route path="/my-journal" element={ <MyJournal /> }/>
+              <Route path="/my-journal" element={<PrivateRoute><MyJournal /> </PrivateRoute> }/>
               <Route path="/entry/:journalEntryId/edit" element={<PrivateRoute><EditEntry /></PrivateRoute> }/>
 
               <Route path="/blog" element={<Blog />}/>
