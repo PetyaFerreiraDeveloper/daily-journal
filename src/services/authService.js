@@ -1,6 +1,7 @@
 import * as request from "./requester";
 
-const baseUrl = 'http://localhost:3030/users';
+// const baseUrl = 'http://localhost:3030/users';
+const baseUrl = 'https://daily-journal-tau.vercel.app/users';
 
 
 export const login = (values) => request.post(`${baseUrl}/login`, values);
