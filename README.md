@@ -25,6 +25,11 @@ Note: The service is initialized with a user, which can be used for immediate te
 
 `npm start`
 
+MongoDB Atlas
+
+connection string: mongodb+srv://admin:Penguin1!@daily-journal.rtytzui.mongodb.net/?retryWrites=true&w=majority
+
+
 
 
 
